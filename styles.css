@@ -1,0 +1,18 @@
+body {
+    background-color:#bebebe ;
+}
+/* O id "Vida" É para o titulo principal do site. */
+#Vida {
+    text-align: left;
+    color:#228B22 ;
+    margin-left: 100px;
+    font-size: 45px;
+}
+
+
+#Nav1 {
+    text-align: left;
+    font-size: 20px;
+    margin-left: 45px;
+    
+}
