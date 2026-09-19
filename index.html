@@ -5,18 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link  rel="stylesheet" href="styles.css">
     <link  rel="icon" href="imagens/favicon.ico" type="image/x-icon">
-    <title>NOME NÃO DEFINDO</title>
+    <title>Muda / Meio Ambiente Brasil</title>
 </head>
 <body>
 <header> 
     <!--Cabeçario da página. (Ref : greenpeace. https://www.greenpeace.org/brasil/)-->
-    <h1 id="Vida">Vida Brasil</h1>
+    <h1 id="Vida">Muda</h1>
     <div id="Nav1">
     <nav>
             <a href="#notícias">notícias</a>
             <a href="#como ajudar">como ajudar</a>
             <a href="#sobre nós">sobre nós</a>
+<!--Butão de pesquisa usando w3-->
+            <button class="btn-buscar">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+</button>
     </nav>
+
     </div>
 </header>
 <main>
@@ -24,29 +32,36 @@
     <!--A ideia inicial é que todas as notícias sejam fictícias-->
 <h1 id="titulo-hero">Juntos por um planeta mais <b>limpo</b> </h1>
 
+<!--Seção de notícias do dia.-->
 
-<section class="notíciashoje">
-    <h3>Notícias</h3>
+    <!--Notícias principais do dia. Ela aparece no topo da página. logo em seguida de "Juntos por um planeta mais limpo com destaque na materia."-->
+    <div class="noticia-principal">
+        <img src="imagens/noticias/PrincipaldodiaRecife.jpg" alt="Imagem de uma notícia do dia" class="img-noticia-principal">
+        <h3 class="NotíciasPrincipais">Pesquisa de Pernambuco revela impacto :</h3>
+    </div>
+    <section class="notíciashoje">
+<!--Cards de notícias do dia.-->
     <div class="cards-container">
         <div class="noticia">
-            <h3>Notícia 1</h3>
+            <h3>Notícia de São paulo </h3>
             <p class="info">Nova tecnologia de drones planta 10 mil árvores por dia em áreas desmatadas.</p>
             <p class="Local">São Paulo, Brasil</p>
             <button>Mais informações</button>
         </div>
         <div class="noticia">
-            <h3>Notícia 2</h3>
+            <h3>Notícia de Recife </h3>
             <p class="info">Um novo estudo mostra que o consumo de carne pode ser uma das principais causas das mudanças climáticas.</p>
             <p class="Local">Recife, Brasil</p>
             <button>Mais informações</button>
         </div>
         <div class="noticia">
-            <h3>Notícia 3</h3>
+            <h3>Notícia da Bahia </h3>
             <p class="info">A cidade de São Paulo implementa programa de reciclagem que reduz o volume de lixo em 30%.</p>
             <p class="Local">Bahia, Brasil</p>
             <button>Mais informações</button>
         </div>
     </div>
+    
 </section>
 </main>
 <footer>
