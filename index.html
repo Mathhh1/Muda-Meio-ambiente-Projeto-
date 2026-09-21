@@ -12,32 +12,47 @@
 <header>
     <!--Parte de titulo "Muda"-->
     <h1 id="Vida">Muda</h1>
-    <div id="Nav1">
+    
+     <div id="Nav1">
         <nav>
             <!--Navegação ou <nav>-->
-            <a href="#notícias">notícias</a>
-            <a href="#como ajudar">como ajudar</a>
-            <a href="#sobre nós">sobre nós</a>
-            <!--Butão de buscar para nóticias da propria página. Usando svg-->
-            <button class="btn-buscar">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-            </button>
+            <a href="#noticias">notícias</a>
+            <a href="#como-ajudar">como ajudar</a>
+            <a href="#sobre-nos">sobre nós</a>
+            
+            <!--Botão de sugestões de notícias da própria página. Usando svg-->
+            <div class="busca-container">
+                <button class="btn-buscar" aria-label="Abrir sugestões" aria-expanded="false" aria-controls="busca-painel">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+
+                <div class="busca-painel" id="busca-painel" hidden>
+                    <ul class="busca-lista">
+                        <li><a href="#noticia-principal">Pesquisa de Pernambuco revela impacto</a></li>
+                        <li><a href="#noticia-sp">Drones plantam 10 mil árvores por dia</a></li>
+                        <li><a href="#noticia-recife">Consumo de carne e mudanças climáticas</a></li>
+                        <li><a href="#noticia-bahia">Reciclagem reduz o lixo em 30%</a></li>
+                        <!-- Para outra página: <li><a href="outra-pagina.html">Texto</a></li> -->
+                    </ul>
+                </div>
+            </div>
         </nav>
     </div>
 </header>
 
 <main>
-    <div class="titulo-principal">
-        <h1 id="h1LIMPO">Juntos por um planeta mais <b>limpo</b><br>juntasse ao nosso projeto!</h1>
+    <div class="titulo-principal" id="sobre-nos">
+        <h1 id="h1LIMPO">Juntos por um planeta mais <b>limpo</b><br>juntos</h1>
         <p id="pLIMPO">Se cadastre no nosso projeto para receber atualizações e novidades!</p>
         <p id="pFICTICIO">O projeto é totalmente fictício e criado apenas para fins educacionais.</p>
         <button id="btn-cadastro">Cadastre-se</button>
     </div>
+
 <!--notícia principal do dia. (Aparece no topo do site.)-->
-    <div class="noticia-principal">
+    <div class="noticia-principal" id="noticia-principal">
         <img src="imagens/noticias/PrincipaldodiaRecife.jpg" alt="Imagem de uma notícia do dia" class="img-noticia-principal">
         <h3 class="NotíciasPrincipais">Pesquisa de Pernambuco revela impacto :</h3>
         <table>
@@ -45,22 +60,23 @@
             <tr class="InfoNoticia2">Realizada por pesquisadores de universidades brasileiras, a pesquisa analisou dados relacionados à produção de alimentos</tr>
         </table>
     </div>
+
 <!--notícias gerais.-->
-    <section class="notíciashoje">
+    <section class="notíciashoje" id="noticias">
         <div class="cards-container">
-            <div class="noticia">
+            <div class="noticia" id="noticia-sp">
                 <h3>Notícia de São Paulo</h3>
                 <p class="info">Nova tecnologia de drones planta 10 mil árvores por dia em áreas desmatadas.</p>
                 <p class="Local">São Paulo, Brasil</p>
                 <button>Mais informações</button>
             </div>
-            <div class="noticia">
+            <div class="noticia" id="noticia-recife">
                 <h3>Notícia de Recife</h3>
                 <p class="info">Um novo estudo mostra que o consumo de carne pode ser uma das principais causas das mudanças climáticas.</p>
                 <p class="Local">Recife, Brasil</p>
                 <button>Mais informações</button>
             </div>
-            <div class="noticia">
+            <div class="noticia" id="noticia-bahia">
                 <h3>Notícia da Bahia</h3>
                 <p class="info">A cidade de São Paulo implementa programa de reciclagem que reduz o volume de lixo em 30%.</p>
                 <p class="Local">Bahia, Brasil</p>
@@ -71,13 +87,14 @@
 
 </main>
 
-<footer>
+<footer id="como-ajudar">
     <!--Rodapé do site-->
     <p>© 2026 Muda / Meio Ambiente Brasil. Todos os direitos reservados.</p>
     <p>Este site é fictício e criado apenas para fins educacionais, agradecemos a visita.</p>
     <a class="github-link" href="https://github.com/Mathhh1/Vida-Brasil-Meio-ambiente" target="_blank">GitHub</a>
 </footer>
+
 <!--link para o arquivo JavaScript-->
 <script src="script.js"></script>
 </body>
-</html> 
+</html>

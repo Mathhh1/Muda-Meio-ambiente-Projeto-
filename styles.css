@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
 }
@@ -15,7 +19,6 @@ header {
     justify-content: flex-end;
     align-items: center;
     padding: 30px 40px;
-    border-radius: 0px 0px 20px 20px;
     position: relative;
 }
 
@@ -40,7 +43,7 @@ nav a {
     font-size: 18px;
 }
 
-/* Botão de busca */
+/* Botão da lupa */
 .btn-buscar {
     background-color: transparent;
     border: none;
@@ -55,6 +58,50 @@ nav a {
 .btn-buscar:hover {
     color: #18420c;
 }
+
+/* Painel de sugestões */
+.busca-container {
+    position: relative;
+}
+
+.busca-painel {
+    position: absolute;
+    top: calc(100% + 15px);
+    right: 0;
+    width: 340px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    padding: 8px;
+    z-index: 100;
+}
+
+.busca-painel[hidden] {
+    display: none;
+}
+
+.busca-lista {
+    list-style: none;
+}
+
+.busca-lista a {
+    display: block;
+    padding: 12px 14px;
+    color: #434F46;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+/* Item selecionado ao passar o mouse ou navegar com Tab */
+.busca-lista a:hover,
+.busca-lista a:focus {
+    background-color: #e4ead9;
+    color: #18420c;
+    outline: none;
+}
+
+/* Botão de cadastro */
 #btn-cadastro {
     background-color: #ffffff;
     color: #020202;
@@ -165,6 +212,12 @@ nav a {
     padding: 12px;
     border-radius: 4px;
     cursor: pointer;
+}
+
+/* Espaço ao rolar até uma notícia */
+.noticia,
+.noticia-principal {
+    scroll-margin-top: 20px;
 }
 
 /* Rodapé */
