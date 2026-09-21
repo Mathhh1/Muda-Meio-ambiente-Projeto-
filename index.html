@@ -3,69 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link  rel="stylesheet" href="styles.css">
-    <link  rel="icon" href="imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
     <title>Muda / Meio Ambiente Brasil</title>
 </head>
 <body>
-<header> 
-    <!--Cabeçario da página. (Ref : greenpeace. https://www.greenpeace.org/brasil/)-->
+
+<header>
+    <!--Parte de titulo "Muda"-->
     <h1 id="Vida">Muda</h1>
     <div id="Nav1">
-    <nav>
+        <nav>
+            <!--Navegação ou <nav>-->
             <a href="#notícias">notícias</a>
             <a href="#como ajudar">como ajudar</a>
             <a href="#sobre nós">sobre nós</a>
-<!--Butão de pesquisa usando w3-->
+            <!--Butão de buscar para nóticias da propria página. Usando svg-->
             <button class="btn-buscar">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="11" cy="11" r="8"></circle>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-    </svg>
-</button>
-    </nav>
-
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </nav>
     </div>
 </header>
+
 <main>
-    <!--A página continura a baixo em diante.-->
-    <!--A ideia inicial é que todas as notícias sejam fictícias-->
-<h1 id="titulo-hero">Juntos por um planeta mais <b>limpo</b> </h1>
-
-<!--Seção de notícias do dia.-->
-
-    <!--Notícias principais do dia. Ela aparece no topo da página. logo em seguida de "Juntos por um planeta mais limpo com destaque na materia."-->
+    <div class="titulo-principal">
+        <h1 id="h1LIMPO">Juntos por um planeta mais <b>limpo</b><br>juntasse ao nosso projeto!</h1>
+        <p id="pLIMPO">Se cadastre no nosso projeto para receber atualizações e novidades!</p>
+        <p id="pFICTICIO">O projeto é totalmente fictício e criado apenas para fins educacionais.</p>
+        <button id="btn-cadastro">Cadastre-se</button>
+    </div>
+<!--notícia principal do dia. (Aparece no topo do site.)-->
     <div class="noticia-principal">
         <img src="imagens/noticias/PrincipaldodiaRecife.jpg" alt="Imagem de uma notícia do dia" class="img-noticia-principal">
         <h3 class="NotíciasPrincipais">Pesquisa de Pernambuco revela impacto :</h3>
+        <table>
+            <tr class="infoNoticia1">Pesquisa revela que a produção de alimentos de origem animal representa uma parcela significativa das emissões de gases de efeito estufa</tr>
+            <tr class="InfoNoticia2">Realizada por pesquisadores de universidades brasileiras, a pesquisa analisou dados relacionados à produção de alimentos</tr>
+        </table>
     </div>
+<!--notícias gerais.-->
     <section class="notíciashoje">
-<!--Cards de notícias do dia.-->
-    <div class="cards-container">
-        <div class="noticia">
-            <h3>Notícia de São paulo </h3>
-            <p class="info">Nova tecnologia de drones planta 10 mil árvores por dia em áreas desmatadas.</p>
-            <p class="Local">São Paulo, Brasil</p>
-            <button>Mais informações</button>
+        <div class="cards-container">
+            <div class="noticia">
+                <h3>Notícia de São Paulo</h3>
+                <p class="info">Nova tecnologia de drones planta 10 mil árvores por dia em áreas desmatadas.</p>
+                <p class="Local">São Paulo, Brasil</p>
+                <button>Mais informações</button>
+            </div>
+            <div class="noticia">
+                <h3>Notícia de Recife</h3>
+                <p class="info">Um novo estudo mostra que o consumo de carne pode ser uma das principais causas das mudanças climáticas.</p>
+                <p class="Local">Recife, Brasil</p>
+                <button>Mais informações</button>
+            </div>
+            <div class="noticia">
+                <h3>Notícia da Bahia</h3>
+                <p class="info">A cidade de São Paulo implementa programa de reciclagem que reduz o volume de lixo em 30%.</p>
+                <p class="Local">Bahia, Brasil</p>
+                <button>Mais informações</button>
+            </div>
         </div>
-        <div class="noticia">
-            <h3>Notícia de Recife </h3>
-            <p class="info">Um novo estudo mostra que o consumo de carne pode ser uma das principais causas das mudanças climáticas.</p>
-            <p class="Local">Recife, Brasil</p>
-            <button>Mais informações</button>
-        </div>
-        <div class="noticia">
-            <h3>Notícia da Bahia </h3>
-            <p class="info">A cidade de São Paulo implementa programa de reciclagem que reduz o volume de lixo em 30%.</p>
-            <p class="Local">Bahia, Brasil</p>
-            <button>Mais informações</button>
-        </div>
-    </div>
-    
-</section>
+    </section>
+
 </main>
+
 <footer>
+    <!--Rodapé do site-->
+    <p>© 2026 Muda / Meio Ambiente Brasil. Todos os direitos reservados.</p>
+    <p>Este site é fictício e criado apenas para fins educacionais, agradecemos a visita.</p>
+    <a class="github-link" href="https://github.com/Mathhh1/Vida-Brasil-Meio-ambiente" target="_blank">GitHub</a>
 </footer>
-<script rel="script" src="script.js"></script>
+<!--link para o arquivo JavaScript-->
+<script src="script.js"></script>
 </body>
-</html>
+</html> 

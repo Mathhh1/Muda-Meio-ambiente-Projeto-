@@ -16,20 +16,21 @@ header {
     align-items: center;
     padding: 30px 40px;
     border-radius: 0px 0px 20px 20px;
-    position: relative
+    position: relative;
 }
-/*titulo do "Muda"*/
+
+/* Título "Muda" */
 #Vida {
     color: #434F46;
     font-size: 24px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-
 }
 
 nav {
     display: flex;
+    align-items: center;
     gap: 35px;
 }
 
@@ -39,22 +40,66 @@ nav a {
     font-size: 18px;
 }
 
-/* Título principal */
-#titulo-hero {
+/* Botão de busca */
+.btn-buscar {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #434F46;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.btn-buscar:hover {
+    color: #18420c;
+}
+#btn-cadastro {
+    background-color: #ffffff;
+    color: #020202;
+    cursor: pointer;
+    border: none;
+    border-radius: 90px;
+    font-size: 20px;
+    margin-top: 50px;
+    font-weight: bold;
+    padding: 6px 10px;
+}
+
+/* Bloco de destaque (título + texto de cadastro) */
+.titulo-principal {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #31411b;
     text-align: center;
-    padding: 400px 20px;
+    padding: 40px 20px;
+    gap: 20px;
+}
+
+.titulo-principal h1 {
     font-size: 30px;
     font-weight: bold;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+.titulo-principal p {
+    font-size: 16px;
+    color: #ffffff;
 }
 
 /* Notícia principal (imagem + título lado a lado) */
 .noticia-principal {
     display: flex;
     align-items: center;
-    gap: 29px;
-    margin: 10px auto;
-    max-width: -100px;
-    padding: 320px 20px;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px 0;
+    padding: 0 40px;
 }
 
 .img-noticia-principal {
@@ -62,15 +107,18 @@ nav a {
     height: 320px;
     object-fit: cover;
     border-radius: 30px;
-    border: 1.96px solid #000000;
+    border: 2px solid #000000;
     flex-shrink: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
 .NotíciasPrincipais {
     text-align: left;
     font-size: 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     color: #0c0c0c;
-    margin-top: -280px;
+    padding-bottom: 10px;
+    padding: 50px 0;
 }
 
 /* Seção de notícias */
@@ -118,17 +166,11 @@ nav a {
     border-radius: 4px;
     cursor: pointer;
 }
-.btn-buscar {
-    background-color: transparent; 
-    border: none;
-    cursor: pointer;
-    color: #434F46; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-}
 
-.btn-buscar:hover {
-    color: #18420c; 
+/* Rodapé */
+footer {
+    background-color: #171815;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
 }
