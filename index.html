@@ -10,16 +10,23 @@
 <body>
 
 <header>
+    <!--Botão hambúrguer (canto esquerdo)-->
+    <button class="btn-hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
     <!--Parte de titulo "Muda"-->
     <h1 id="Vida">Muda</h1>
-    
-     <div id="Nav1">
+
+    <div id="Nav1">
         <nav>
             <!--Navegação ou <nav>-->
             <a href="#noticias">notícias</a>
             <a href="#como-ajudar">como ajudar</a>
             <a href="#sobre-nos">sobre nós</a>
-            
+
             <!--Botão de sugestões de notícias da própria página. Usando svg-->
             <div class="busca-container">
                 <button class="btn-buscar" aria-label="Abrir sugestões" aria-expanded="false" aria-controls="busca-painel">
@@ -35,7 +42,6 @@
                         <li><a href="#noticia-sp">Drones plantam 10 mil árvores por dia</a></li>
                         <li><a href="#noticia-recife">Consumo de carne e mudanças climáticas</a></li>
                         <li><a href="#noticia-bahia">Reciclagem reduz o lixo em 30%</a></li>
-                        <!-- Para outra página: <li><a href="outra-pagina.html">Texto</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -51,17 +57,17 @@
         <button id="btn-cadastro">Cadastre-se</button>
     </div>
 
-<!--notícia principal do dia. (Aparece no topo do site.)-->
+    <!--notícia principal do dia. (Aparece no topo do site.)-->
     <div class="noticia-principal" id="noticia-principal">
         <img src="imagens/noticias/PrincipaldodiaRecife.jpg" alt="Imagem de uma notícia do dia" class="img-noticia-principal">
-        <h3 class="NotíciasPrincipais">Pesquisa de Pernambuco revela impacto :</h3>
-        <table>
-            <tr class="infoNoticia1">Pesquisa revela que a produção de alimentos de origem animal representa uma parcela significativa das emissões de gases de efeito estufa</tr>
-            <tr class="InfoNoticia2">Realizada por pesquisadores de universidades brasileiras, a pesquisa analisou dados relacionados à produção de alimentos</tr>
-        </table>
+        <div class="texto-noticia-principal">
+            <h3 class="NotíciasPrincipais">Pesquisa de Pernambuco revela impacto</h3>
+            <p class="subtitulo-noticia">• Estudo aponta ligação entre pecuária e emissões de gases de efeito estufa</p>
+            <p class="meta-noticia">Há 2 horas — Em Meio Ambiente</p>
+        </div>
     </div>
 
-<!--notícias gerais.-->
+    <!--notícias gerais.-->
     <section class="notíciashoje" id="noticias">
         <div class="cards-container">
             <div class="noticia" id="noticia-sp">
