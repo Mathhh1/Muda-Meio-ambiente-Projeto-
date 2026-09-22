@@ -52,11 +52,17 @@
 <main>
     <div class="titulo-principal" id="sobre-nos">
         <h1 id="h1LIMPO">Juntos por um planeta mais <b>limpo</b><br>juntos</h1>
-        <p id="pLIMPO">Se cadastre no nosso projeto para receber atualizações e novidades!</p>
-        <p id="pFICTICIO">O projeto é totalmente fictício e criado apenas para fins educacionais.</p>
+            <p id="pLIMPO">Se cadastre no nosso projeto para receber atualizações e novidades!</p>
+            <p id="pFICTICIO">O projeto é totalmente fictício e criado apenas para fins educacionais.</p>
         <!--Botão de cadastro-->
         <!--Botão sera usado pra forms. Cadastro pessoal ou hero section.-->
-        <button id="btn-cadastro">Cadastre-se</button>
+        <button id="btn-cadastro">Cadastre-se</button>                         
+        <form id="form-cadastro" class="form-cadastro" hidden>
+            <input type="text" placeholder="Seu nome completo:" required>
+            <input type="email" placeholder="Digite seu e-mail completo:" required:>
+            <input type="number" placeholder="Digite seu numero:" required>
+            <button type="submit">Enviar</button>
+        </form>
     </div>
 
     <!--notícia principal do dia. (Aparece no topo do site.)-->

@@ -31,3 +31,8 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !painel.hidden) fecharBusca();
 });
+
+
+
+const btnCadastro = document.getElementById()
+const formCadastro = document.getElementById()
