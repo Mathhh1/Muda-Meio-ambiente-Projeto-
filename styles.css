@@ -15,6 +15,7 @@ body {
 /* Variável com a altura do header, usada pelo hero abaixo */
 :root {
     --altura-header: 90px;
+    --largura-menu-mobile: 290px;
 }
 
 /* Cabeçalho */
@@ -185,6 +186,8 @@ nav a {
     gap: 3.4px;
     width: 44px;
     height: 30px;
+    z-index: 1100;
+    transition: left 0.3s ease, background-color 0.2s ease, transform 0.3s ease;
 }
 
 .btn-hamburguer:hover {
@@ -197,6 +200,90 @@ nav a {
     height: 3px;
     background-color: #ffffff;
     border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+    transform-origin: center;
+}
+
+body.menu-mobile-aberto {
+    overflow: hidden;
+}
+
+body.menu-mobile-aberto .btn-hamburguer {
+    position: fixed;
+    left: min(calc(var(--largura-menu-mobile) + 16px), calc(100vw - 60px));
+    top: 30px;
+    transform: none;
+    background-color: #31411b;
+}
+
+body.menu-mobile-aberto .btn-hamburguer span:nth-child(1) {
+    transform: translateY(6.4px) rotate(45deg);
+}
+
+body.menu-mobile-aberto .btn-hamburguer span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
+    transform: translateY(-6.4px) rotate(-45deg);
+}
+
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.38);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 900;
+}
+
+.menu-overlay[hidden],
+.menu-mobile[hidden] {
+    display: none;
+}
+
+.menu-overlay.aberto {
+    opacity: 1;
+}
+
+.menu-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: min(var(--largura-menu-mobile), 82vw);
+    height: 100vh;
+    background-color: #f7f9f2;
+    box-shadow: 8px 0 28px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 98px 24px 24px;
+    transform: translateX(-105%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.menu-mobile.aberto {
+    transform: translateX(0);
+}
+
+.menu-mobile a {
+    color: #31411b;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 14px 12px;
+}
+
+.menu-mobile a:hover,
+.menu-mobile a:focus {
+    background-color: #e4ead9;
+    color: #18420c;
+    outline: none;
 }
 
 /* Botão da lupa */
