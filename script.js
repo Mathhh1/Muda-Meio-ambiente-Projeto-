@@ -1,3 +1,4 @@
+/* ===== Busca / sugestões (lupa) ===== */
 const btnBuscar = document.querySelector('.btn-buscar');
 const painel = document.getElementById('busca-painel');
 
@@ -33,6 +34,31 @@ document.addEventListener('keydown', (e) => {
 });
 
 
+/* ===== Formulário de cadastro (Hero section) ===== */
+const btnCadastro = document.getElementById('btn-cadastro');
+const formPainel = document.getElementById('form-cadastro');
+const formCadastro = formPainel.querySelector('form');
 
-const btnCadastro = document.getElementById()
-const formCadastro = document.getElementById()
+btnCadastro.addEventListener('click', () => {
+    const estaEscondido = formPainel.hidden;
+
+    if (estaEscondido) {
+        formPainel.hidden = false;
+        // pequeno delay pra garantir que a transição CSS rode
+        setTimeout(() => formPainel.classList.add('aberto'), 10);
+        btnCadastro.textContent = 'Cancelar';
+    } else {
+        formPainel.classList.remove('aberto');
+        // espera a animação de saída terminar antes de esconder de vez
+        setTimeout(() => formPainel.hidden = true, 250);
+        btnCadastro.textContent = 'Cadastre-se';
+    }
+
+    btnCadastro.setAttribute('aria-expanded', estaEscondido);
+});
+
+formCadastro.addEventListener('submit', (evento) => {
+    evento.preventDefault(); // impede o formulário de recarregar a página
+    alert('Cadastro enviado com sucesso! (simulação)');
+    formCadastro.reset(); // limpa os campos
+});

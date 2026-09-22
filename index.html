@@ -50,30 +50,66 @@
 </header>
 
 <main>
+    <!--Hero section: ocupa a tela inteira abaixo do header-->
     <div class="titulo-principal" id="sobre-nos">
         <h1 id="h1LIMPO">Juntos por um planeta mais <b>limpo</b><br>juntos</h1>
-            <p id="pLIMPO">Se cadastre no nosso projeto para receber atualizações e novidades!</p>
-            <p id="pFICTICIO">O projeto é totalmente fictício e criado apenas para fins educacionais.</p>
+        <p id="pLIMPO">Se cadastre no nosso projeto para receber atualizações e novidades!</p>
+        <p id="pFICTICIO">O projeto é totalmente fictício e criado apenas para fins educacionais.</p>
+
         <!--Botão de cadastro-->
         <!--Botão sera usado pra forms. Cadastro pessoal ou hero section.-->
-        <button id="btn-cadastro">Cadastre-se</button>                         
-        <form id="form-cadastro" class="form-cadastro" hidden>
-            <input type="text" placeholder="Seu nome completo:" required>
-            <input type="email" placeholder="Digite seu e-mail completo:" required:>
-            <input type="number" placeholder="Digite seu numero:" required>
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
+        <button id="btn-cadastro" aria-expanded="false" aria-controls="form-cadastro">Cadastre-se</button>
 
-    <!--notícia principal do dia. (Aparece no topo do site.)-->
+        <!--Formulário de cadastro (Hero section)-->
+        <div class="form-painel" id="form-cadastro" hidden>
+            <h4>Faça parte do projeto</h4>
+            <p class="form-subtitulo">Preencha seus dados e receba novidades em primeira mão.</p>
+            <form>
+                <input type="text" placeholder="Seu nome completo:" required>
+                <input type="email" placeholder="Digite seu e-mail completo:" required>
+                <input type="number" placeholder="Digite seu número:" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <aside class="Notícias-Em-Destaques">
+        <h4>Notícias em Destaque</h4>
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="notíciasdestaque">São Paulo atinge a menor temperatura no ano</span>
+                    <img src="/imagens/noticias/noticiasãopaulo.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="notíciasdestaque">Recife implementa programa de reciclagem</span>
+                    <img src="/imagens/noticias/reciferecicla.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="notíciasdestaque">João Pessoa investe em energia solar em escolas públicas</span>
+                    <img src="/imagens/noticias/joãopessoapublica.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
+                </a>
+            </li>
+        </ul>
+
+
+
+
+    </aside>
+    <!--notícia principal do dia. (Aparece logo abaixo do hero.)-->
     <!--Corrigir!! Problemas de fontes.-->
     <div class="noticia-principal" id="noticia-principal">
-        <img src="imagens/noticias/PrincipaldodiaRecife.jpg" alt="Imagem de uma notícia do dia" class="img-noticia-principal">
-        <div class="texto-noticia-principal">
-            <h3 class="NotíciasPrincipais">Pesquisa de Pernambuco revela impacto</h3>
-            <p class="subtitulo-noticia">• Estudo aponta ligação entre pecuária e emissões de gases de efeito estufa</p>
-            <p class="meta-noticia">Há 2 horas — Em Meio Ambiente</p>
-        </div>
+        <a href="/notícias/rec.html" class="link-noticia">
+            <img src="imagens/noticias/PrincipaldodiaRecife.jpg" alt="Imagem de uma notícia do dia" class="img-noticia-principal">
+            <div class="texto-noticia-principal">
+                <h3 class="NotíciasPrincipais">Pesquisa de Pernambuco revela impacto</h3>
+                <p class="subtitulo-noticia">• Estudo aponta ligação entre pecuária e emissões de gases de efeito estufa</p>
+                <p class="meta-noticia">Há 2 horas — Em Meio Ambiente</p>
+            </div>
+        </a>
     </div>
 
     <!--notícias gerais.-->
@@ -114,10 +150,7 @@
 </body>
 </html>
 
-
-
 <!--Coisas para corrigir.-->
 <!--Fonte mais adequada para o estilo do site.-->
 <!--Formulário de cadastro-->
 <!--Site separado das notícias-->
- 
