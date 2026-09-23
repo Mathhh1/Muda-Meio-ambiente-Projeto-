@@ -1,6 +1,66 @@
-/* =========================================
-   BUSCA / SUGESTÕES (LUPA)
-========================================= */
+/* ===== Menu hamburguer ===== */
+const btnHamburguer = document.querySelector('.btn-hamburguer');
+const menuMobile = document.getElementById('menu-mobile');
+const menuOverlay = document.querySelector('[data-menu-overlay]');
+let timeoutMenuMobile;
+
+function abrirMenuMobile() {
+    clearTimeout(timeoutMenuMobile);
+    menuMobile.hidden = false;
+    menuOverlay.hidden = false;
+    btnHamburguer.setAttribute('aria-expanded', 'true');
+    btnHamburguer.setAttribute('aria-label', 'Fechar menu');
+    document.body.classList.add('menu-mobile-aberto');
+
+    requestAnimationFrame(() => {
+        menuMobile.classList.add('aberto');
+        menuOverlay.classList.add('aberto');
+    });
+}
+
+function fecharMenuMobile() {
+    clearTimeout(timeoutMenuMobile);
+    menuMobile.classList.remove('aberto');
+    menuOverlay.classList.remove('aberto');
+    document.body.classList.remove('menu-mobile-aberto');
+    btnHamburguer.setAttribute('aria-expanded', 'false');
+    btnHamburguer.setAttribute('aria-label', 'Abrir menu');
+
+    timeoutMenuMobile = setTimeout(() => {
+        menuMobile.hidden = true;
+        menuOverlay.hidden = true;
+    }, 300);
+}
+
+btnHamburguer.addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.body.classList.contains('menu-mobile-aberto') ? fecharMenuMobile() : abrirMenuMobile();
+});
+
+menuMobile.addEventListener('click', (e) => {
+    e.stopPropagation();
+});
+
+menuMobile.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', fecharMenuMobile);
+});
+
+menuOverlay.addEventListener('click', (e) => {
+    e.stopPropagation();
+    fecharMenuMobile();
+});
+
+document.addEventListener('click', (e) => {
+    if (!menuMobile.hidden && !menuMobile.contains(e.target) && !btnHamburguer.contains(e.target)) {
+        fecharMenuMobile();
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menuMobile.hidden) fecharMenuMobile();
+});
+
+/* ===== Busca / sugestões (lupa) ===== */
 
 const btnBuscar = document.querySelector('.btn-buscar');
 const painel = document.getElementById('busca-painel');
@@ -90,8 +150,7 @@ formCadastro.addEventListener('submit', (evento) => {
     evento.preventDefault();
 
     alert('Cadastro enviado com sucesso! (simulação)');
-
-    formCadastro.reset();
+    formCadastro.reset(); // limpa os campos
 });
 
 const botaoMenu = document.querySelector(".btn-hamburguer");
@@ -147,4 +206,6 @@ document.addEventListener("keydown", (evento) => {
     if (evento.key === "Escape" && menuMobileAberto()) {
         fecharMenuMobile();
     }
+});
+
 });
