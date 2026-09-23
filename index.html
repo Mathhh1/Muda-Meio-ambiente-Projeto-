@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
     <title>Muda / Meio Ambiente Brasil</title>
 </head>
 <body>
+
+<!--Overlay e menu mobile ficam fora do header, senão o z-index do header os prende-->
+<div class="menu-overlay" data-menu-overlay hidden></div>
+
+<nav class="menu-mobile" id="menu-mobile" aria-label="Menu principal" hidden>
+    <a href="#noticias">notícias</a>
+    <a href="#como-ajudar">como ajudar</a>
+    <a href="#sobre-nos">sobre nós</a>
+</nav>
 
 <header>
     <!--Botão hambúrguer (canto esquerdo)-->
@@ -16,14 +28,6 @@
         <span></span>
         <span></span>
     </button>
-
-    <div class="menu-overlay" data-menu-overlay hidden></div>
-
-    <nav class="menu-mobile" id="menu-mobile" aria-label="Menu principal" hidden>
-        <a href="#noticias">notícias</a>
-        <a href="#como-ajudar">como ajudar</a>
-        <a href="#sobre-nos">sobre nós</a>
-    </nav>
 
     <!--Parte de titulo "Muda"-->
     <h1 id="Vida">Muda</h1>
@@ -58,7 +62,7 @@
 </header>
 
 <main>
-    <!--Hero section: ocupa a tela inteira abaixo do header-->
+    <!--Hero section: ocupa a tela inteira abaixo do header, com margens alinhadas ao header-->
     <div class="titulo-principal" id="sobre-nos">
         <h1 id="h1LIMPO">Juntos por um planeta mais <b>limpo</b><br>juntos</h1>
         <p id="pLIMPO">Se cadastre no nosso projeto para receber atualizações e novidades!</p>
@@ -82,46 +86,42 @@
     </div>
 
     <div class="layout-noticias">
-    <!-- Notícias em destaque ao lado da matéria principal -->
-    <aside class="Notícias-Em-Destaques">
-        <h4>Notícias em Destaque</h4>
-        <ul>
-            <li>
-                <a href="#">
-                    <span class="notíciasdestaque">São Paulo atinge a menor temperatura no ano</span>
-                    <img src="/imagens/noticias/noticiasãopaulo.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="notíciasdestaque">Recife implementa programa de reciclagem</span>
-                    <img src="/imagens/noticias/reciferecicla.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="notíciasdestaque">João Pessoa investe em energia solar em escolas públicas</span>
-                    <img src="/imagens/noticias/joãopessoapublica.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
-                </a>
-            </li>
-        </ul>
+        <!-- Notícias em destaque, à esquerda da matéria principal -->
+        <aside class="Notícias-Em-Destaques">
+            <h4>Notícias em Destaque</h4>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="notíciasdestaque">São Paulo atinge a menor temperatura no ano</span>
+                        <img src="imagens/noticias/noticiasãopaulo.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="notíciasdestaque">Recife implementa programa de reciclagem</span>
+                        <img src="imagens/noticias/reciferecicla.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="notíciasdestaque">João Pessoa investe em energia solar em escolas públicas</span>
+                        <img src="imagens/noticias/joãopessoapublica.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
+                    </a>
+                </li>
+            </ul>
+        </aside>
 
-
-
-
-    </aside>
-    <!--notícia principal do dia. (Aparece logo abaixo do hero.)-->
-    <!--Corrigir!! Problemas de fontes.-->
-    <div class="noticia-principal" id="noticia-principal">
-        <a href="/notícias/rec.html" class="link-noticia">
-            <img src="imagens/noticias/PrincipaldodiaRecife.jpg" alt="Imagem de uma notícia do dia" class="img-noticia-principal">
-            <div class="texto-noticia-principal">
-                <h3 class="NotíciasPrincipais">Pesquisa de Pernambuco revela impacto</h3>
-                <p class="subtitulo-noticia">• Estudo aponta ligação entre pecuária e emissões de gases de efeito estufa</p>
-                <p class="meta-noticia">Há 2 horas — Em Meio Ambiente</p>
-            </div>
-        </a>
-    </div>
+        <!--notícia principal do dia. (Aparece logo abaixo do hero.)-->
+        <div class="noticia-principal" id="noticia-principal">
+            <a href="noticias/rec.html" class="link-noticia">
+                <img src="imagens/noticias/PrincipaldodiaRecife.jpg" alt="Imagem de uma notícia do dia" class="img-noticia-principal">
+                <div class="texto-noticia-principal">
+                    <h3 class="NotíciasPrincipais">Pesquisa de Pernambuco revela impacto</h3>
+                    <p class="subtitulo-noticia">• Estudo aponta ligação entre pecuária e emissões de gases de efeito estufa</p>
+                    <p class="meta-noticia">Há 2 horas — Em Meio Ambiente</p>
+                </div>
+            </a>
+        </div>
     </div>
 
     <!--notícias gerais.-->
@@ -163,6 +163,4 @@
 </html>
 
 <!--Coisas para corrigir.-->
-<!--Fonte mais adequada para o estilo do site.-->
-<!--Formulário de cadastro-->
 <!--Site separado das notícias-->

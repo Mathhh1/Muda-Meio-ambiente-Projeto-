@@ -9,30 +9,39 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #ffffff;
+    isolation: isolate;
 }
 
-/* Variável com a altura do header, usada pelo hero abaixo */
 :root {
     --altura-header: 90px;
     --largura-menu-mobile: 290px;
 }
 
-/* Cabeçalho */
+/* =========================================
+   CABEÇALHO
+========================================= */
+
 header {
-    background-color: #8E9C78;
+    background-color: #8E9C78; /* cor opaca/sólida */
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 30px 40px;
+    border-radius: 30px;
+    padding: 20px 10px;
+
+    margin: 10px 20px 20px; /* topo 10px, laterais 20px, embaixo 20px (separa do hero) */
     position: relative;
     height: var(--altura-header);
+
+    z-index: 10;
 }
 
-/* Título "Muda" */
 #Vida {
-    color: #434F46;
+    color: #ffffff;
     font-size: 24px;
+    font-weight: 700;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -48,8 +57,13 @@ nav a {
     color: white;
     text-decoration: none;
     font-size: 18px;
+    transition: color 0.2s ease;
 }
 
+nav a:hover,
+nav a:focus {
+    color: #7ed321;
+}
 
 /* Destaques alinhados à matéria principal */
 .layout-noticias {
@@ -109,7 +123,10 @@ nav a {
     flex-shrink: 0;
 }
 
-/* Painel do formulário de cadastro (Hero section) */
+/* =========================================
+   FORMULÁRIO DE CADASTRO
+========================================= */
+
 .form-painel {
     background-color: #ffffff;
     color: #31411b;
@@ -120,11 +137,11 @@ nav a {
     max-width: 340px;
     margin-top: 10px;
     text-align: left;
-
-    /* animação de entrada */
     opacity: 0;
     transform: translateY(-10px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
 }
 
 .form-painel[hidden] {
@@ -138,6 +155,7 @@ nav a {
 
 .form-painel h4 {
     font-size: 18px;
+    font-weight: 600;
     margin-bottom: 6px;
 }
 
@@ -158,6 +176,7 @@ nav a {
     border-radius: 8px;
     border: 1px solid #cccccc;
     font-size: 14px;
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
 .form-painel input:focus {
@@ -171,13 +190,15 @@ nav a {
     border: none;
     border-radius: 8px;
     padding: 12px;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
     margin-top: 4px;
+    transition: background-color 0.2s ease;
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
 .form-painel button[type="submit"]:hover {
-    background-color: #7ed321;
+    background-color: #486b23;
 }
 
 /* Botão hambúrguer */
@@ -186,31 +207,25 @@ nav a {
     left: 40px;
     top: 50%;
     transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    z-index: 1100;
+    width: 44px;
+    height: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3.4px;
-    width: 44px;
-    height: 30px;
-    z-index: 1100;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
     transition: left 0.3s ease, background-color 0.2s ease, transform 0.3s ease;
 }
 
-.btn-hamburguer:hover {
-    background-color: #393b31;
-}
-
 .btn-hamburguer span {
-    display: block;
-    width: 22px;
+    width: 28px;
     height: 3px;
     background-color: #ffffff;
-    border-radius: 2px;
+    border-radius: 5px;
     transition: transform 0.3s ease, opacity 0.2s ease;
     transform-origin: center;
 }
@@ -240,13 +255,26 @@ body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
     transform: translateY(-6.4px) rotate(-45deg);
 }
 
-.menu-overlay {
+/* Menu lateral (agora fora do header, então cobre a tela toda de verdade) */
+.menu-mobile {
     position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.38);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 900;
+    top: 0;
+    left: 0;
+    width: min(var(--largura-menu-mobile), 85vw);
+    height: 100vh;
+    background-color: rgba(30, 42, 15, 0.95);
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 90px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    z-index: 1000;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .menu-overlay[hidden],
@@ -254,55 +282,67 @@ body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
     display: none;
 }
 
-.menu-overlay.aberto {
-    opacity: 1;
-}
-
-.menu-mobile {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: min(var(--largura-menu-mobile), 82vw);
-    height: 100vh;
-    background-color: #f7f9f2;
-    box-shadow: 8px 0 28px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 12px;
-    padding: 98px 24px 24px;
-    transform: translateX(-105%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-}
-
 .menu-mobile.aberto {
     transform: translateX(0);
 }
 
 .menu-mobile a {
-    color: #31411b;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 8px;
+    display: block;
     padding: 14px 12px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: 0.3s ease;
 }
 
 .menu-mobile a:hover,
 .menu-mobile a:focus {
-    background-color: #e4ead9;
-    color: #18420c;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 20px;
     outline: none;
 }
 
-/* Botão da lupa */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+    z-index: 999;
+}
+
+.menu-overlay.aberto {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.btn-hamburguer.aberto span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.btn-hamburguer.aberto span:nth-child(2) {
+    opacity: 0;
+}
+
+.btn-hamburguer.aberto span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* =========================================
+   BOTÃO DA LUPA
+========================================= */
+
 .btn-buscar {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: #434F46;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -310,10 +350,13 @@ body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
 }
 
 .btn-buscar:hover {
-    color: #18420c;
+    color: #7ed321;
 }
 
-/* Painel de sugestões */
+/* =========================================
+   PAINEL DE SUGESTÕES
+========================================= */
+
 .busca-container {
     position: relative;
 }
@@ -345,6 +388,7 @@ body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
     text-decoration: none;
     font-size: 14px;
     border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .busca-lista a:hover,
@@ -354,7 +398,10 @@ body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
     outline: none;
 }
 
-/* Botão de cadastro */
+/* =========================================
+   BOTÃO DE CADASTRO
+========================================= */
+
 #btn-cadastro {
     background-color: #ffffff;
     color: #020202;
@@ -363,26 +410,45 @@ body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
     border-radius: 90px;
     font-size: 20px;
     margin-top: 50px;
-    font-weight: bold;
+    font-weight: 600;
     padding: 6px 10px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
-/* Bloco de destaque (título + texto de cadastro) — Hero cobrindo a tela toda */
+#btn-cadastro:hover {
+    background-color: #7ed321;
+    color: #ffffff;
+    transform: scale(1.03);
+}
+
+/* =========================================
+   SEÇÃO PRINCIPAL — HERO
+========================================= */
+
 .titulo-principal {
-    height: calc(100vh - var(--altura-header));
+    position: relative;
+    z-index: 1;
+
+    /* altura: 100% da tela menos header (topo+laterais+embaixo) e a margem embaixo do próprio hero */
+    height: calc(100vh - var(--altura-header) - 50px);
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #1e2a0f;
+    background-color: #1e2a0f; /* cor opaca/sólida */
     text-align: center;
     padding: 40px 20px;
     gap: 20px;
+
+    margin: 0 20px 20px; /* mesma margem lateral do header, + respiro embaixo */
+    border-radius: 30px; /* mesmo arredondamento do header */
 }
 
 .titulo-principal h1 {
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 700;
     color: #ffffff;
     line-height: 1.4;
 }
@@ -392,13 +458,19 @@ body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
     color: #ffffff;
 }
 
-/* Notícia principal (imagem à esquerda, texto à direita) */
+/* =========================================
+   NOTÍCIA PRINCIPAL
+========================================= */
+
 .noticia-principal {
+    position: relative;
+    z-index: 1;
     grid-area: principal;
     max-width: 900px;
     width: 100%;
     margin: 0;
     padding: 0;
+    scroll-margin-top: 20px;
 }
 
 .link-noticia {
@@ -426,23 +498,28 @@ body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
 
 .NotíciasPrincipais {
     font-size: 24px;
-    font-weight: bold;
-    color: #31411b;
+    font-weight: 700;
+    color: #0a4e0f;
     line-height: 1.3;
 }
 
 .subtitulo-noticia {
     font-size: 15px;
-    color: #434F46;
+    color: #0f3008;
 }
 
 .meta-noticia {
     font-size: 13px;
-    color: #888888;
+    color: #666666;
 }
 
-/* Seção de notícias */
+/* =========================================
+   SEÇÃO DE NOTÍCIAS
+========================================= */
+
 .notíciashoje {
+    position: relative;
+    z-index: 1;
     padding: 40px;
 }
 
@@ -466,14 +543,21 @@ body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
 .noticia h3 {
     color: #434F46;
     font-size: 13px;
+    font-weight: 600;
     margin-bottom: 15px;
 }
 
 .noticia .info {
     color: #434F46;
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 600;
     margin: 15px 0;
+}
+
+.noticia .Local {
+    color: #434F46;
+    font-size: 12px;
+    margin-bottom: 15px;
 }
 
 .noticia button {
@@ -485,15 +569,21 @@ body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
     padding: 12px;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
-/* Espaço ao rolar até uma notícia */
-.noticia-principal {
-    scroll-margin-top: 20px;
+.noticia button:hover {
+    background-color: #31411b;
 }
 
-/* Rodapé */
+/* =========================================
+   RODAPÉ
+========================================= */
+
 footer {
+    position: relative;
+    z-index: 1;
     background-color: #171815;
     color: white;
     text-align: center;
@@ -507,43 +597,44 @@ footer {
 .github-link {
     color: #8E9C78;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .github-link:hover {
     text-decoration: underline;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
 @media (max-width: 768px) {
 
     header {
-        flex-direction: column;
-        gap: 15px;
         padding: 20px;
         height: auto;
+        margin: 10px 10px 15px;
     }
 
     .btn-hamburguer {
-        position: static;
-        transform: none;
+        left: 20px;
     }
 
     #Vida {
-        position: static;
-        transform: none;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
+    #Nav1 nav {
+        display: none;
     }
 
     .titulo-principal {
         height: auto;
-        min-height: 100vh;
+        min-height: calc(100vh - 140px);
         padding: 60px 20px;
+        margin: 0 10px 15px;
     }
 
     .titulo-principal h1 {
@@ -561,19 +652,20 @@ footer {
     .layout-noticias {
         grid-template-columns: 1fr;
         grid-template-areas:
-            "principal"
-            "destaques";
+            "destaques"
+            "principal";
         gap: 24px;
         padding: 20px;
     }
 
     .Notícias-Em-Destaques {
         width: 100%;
+        max-width: 330px;
     }
 
     .noticia-principal {
-        padding: 0;
-        margin: 0;
+        padding: 0 20px;
+        margin: 20px auto;
     }
 
     .img-noticia-principal {
@@ -583,6 +675,10 @@ footer {
 
     .cards-container {
         grid-template-columns: 1fr;
+    }
+
+    .busca-painel {
+        width: min(340px, 85vw);
     }
 
     footer {
