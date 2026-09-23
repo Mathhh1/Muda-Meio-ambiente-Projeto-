@@ -16,9 +16,10 @@ body {
     isolation: isolate;
 }
 
-/* Variável com a altura do header */
+/* Variável com a altura do header e largura do menu */
 :root {
     --altura-header: 90px;
+    --largura-menu-mobile: 320px;
 }
 
 /* =========================================
@@ -56,17 +57,6 @@ header {
     transform: translateX(-50%);
 }
 
-/* Título Muda */
-#Vida {
-    color: #434F46;
-    font-size: 24px;
-
-    position: absolute;
-    left: 50%;
-
-    transform: translateX(-50%);
-}
-
 /* Navegação */
 nav {
     display: flex;
@@ -78,6 +68,12 @@ nav a {
     color: white;
     text-decoration: none;
     font-size: 18px;
+    transition: color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    color: #7ed321;
 }
 
 /* =========================================
@@ -238,56 +234,118 @@ nav a {
     cursor: pointer;
 
     margin-top: 4px;
+    transition: background-color 0.2s ease;
 }
 
 .form-painel button[type="submit"]:hover {
-    background-color: #7ed321;
+    background-color: #486b23;
 }
 
-/* =========================================
-   BOTÃO HAMBÚRGUER
-========================================= */
-
+/* Botão hambúrguer */
 .btn-hamburguer {
     position: absolute;
-
     left: 40px;
     top: 50%;
-
     transform: translateY(-50%);
 
-    background: transparent;
+    z-index: 1001;
 
-    border: none;
-    border-radius: 8px;
-
-    cursor: pointer;
+    width: 45px;
+    height: 45px;
 
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
+    gap: 5px;
 
-    gap: 3.4px;
-
-    width: 44px;
-    height: 30px;
-}
-
-.btn-hamburguer:hover {
-    background-color: #393b31;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-hamburguer span {
-    display: block;
-
-    width: 22px;
+    width: 28px;
     height: 3px;
 
-    background-color: #ffffff;
+    background-color: #000;
+    border-radius: 5px;
 
-    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+
+/* Menu lateral */
+.menu-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 280px;
+    height: 100vh;
+
+    background-color: rgba(255, 255, 255, 0.10);
+
+    padding-top: 90px;
+
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+
+    z-index: 1000;
+
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+}
+
+
+/* Menu aberto */
+.menu-mobile.ativo {
+    transform: translateX(0);
+}
+
+
+/* Lista */
+.menu-mobile ul {
+    list-style: none;
+    padding:  10px;
+    margin:0px 0;
+}
+
+/* Links */
+.menu-mobile a {
+    display: block;
+
+    padding: 20px 30px;
+
+    color: #1f3c1f;
+    text-decoration: none;
+
+    font-size: 18px;
+
+    transition: 0.3s ease;
+}
+
+
+/* Efeito ao passar o mouse */
+.menu-mobile a:hover {
+    background-color:rgba(51, 64, 37, 0.1);
+    padding-left: 40px;
+}
+
+
+/* Transformar hambúrguer em X */
+.btn-hamburguer.ativo span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.btn-hamburguer.ativo span:nth-child(2) {
+    opacity: 0;
+}
+
+.btn-hamburguer.ativo span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* =========================================
@@ -362,6 +420,8 @@ nav a {
     font-size: 14px;
 
     border-radius: 8px;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .busca-lista a:hover,
@@ -392,6 +452,14 @@ nav a {
     font-weight: bold;
 
     padding: 6px 10px;
+
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#btn-cadastro:hover {
+    background-color: #7ed321;
+    color: #ffffff;
+    transform: scale(1.03);
 }
 
 /* =========================================
@@ -575,6 +643,12 @@ nav a {
     border-radius: 4px;
 
     cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.noticia button:hover {
+    background-color: #31411b;
 }
 
 /* =========================================
@@ -658,31 +732,23 @@ footer {
 @media (max-width: 768px) {
 
     header {
-        flex-direction: column;
-
-        gap: 15px;
-
         padding: 20px;
 
         height: auto;
     }
 
     .btn-hamburguer {
-        position: static;
-        transform: none;
+        left: 20px;
     }
 
     #Vida {
-        position: static;
-        transform: none;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     nav {
-        flex-wrap: wrap;
-
-        justify-content: center;
-
-        gap: 15px;
+        display: none;
     }
 
     .titulo-principal {
@@ -732,4 +798,4 @@ footer {
     footer {
         padding: 30px 20px;
     }
-}
+}       

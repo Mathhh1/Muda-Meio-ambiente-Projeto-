@@ -15,7 +15,7 @@
 
     <!-- Vídeo de fundo -->
     <video autoplay muted loop playsinline id="video-background">
-        <source src="/imagens/video-fundo.mp4" type="video/mp4">
+        <source src="/imagens/home-background.mp4" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
     </video>
 
@@ -26,16 +26,20 @@
     <header>
 
         <!-- Botão hambúrguer -->
-        <button class="btn-hamburguer"
-            aria-label="Abrir menu"
-            aria-expanded="false"
-            aria-controls="menu-mobile">
+<button class="btn-hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
 
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
+<!-- Menu lateral -->
+<nav class="menu-mobile" id="menu-mobile">
+    <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#ajudar">Como ajudar</a></li>
+        <li><a href="#noticias">Notícias</a></li>
+    </ul>
+</nav>
 
         <!-- Título Muda -->
         <h1 id="Vida">Muda</h1>

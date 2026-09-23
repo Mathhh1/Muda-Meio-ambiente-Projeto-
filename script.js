@@ -93,3 +93,16 @@ formCadastro.addEventListener('submit', (evento) => {
 
     formCadastro.reset();
 });
+
+const botaoMenu = document.querySelector(".btn-hamburguer");
+const menuMobile = document.querySelector(".menu-mobile");
+
+botaoMenu.addEventListener("click", function () {
+
+    botaoMenu.classList.toggle("ativo");
+    menuMobile.classList.toggle("ativo");
+
+    const menuAberto = botaoMenu.classList.contains("ativo");
+
+    botaoMenu.setAttribute("aria-expanded", menuAberto);
+});
