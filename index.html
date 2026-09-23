@@ -1,156 +1,337 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
+
     <title>Muda / Meio Ambiente Brasil</title>
 </head>
+
 <body>
 
-<header>
-    <!--Botão hambúrguer (canto esquerdo)-->
-    <button class="btn-hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <!-- Vídeo de fundo -->
+    <video autoplay muted loop playsinline id="video-background">
+        <source src="/imagens/video-fundo.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
 
-    <!--Parte de titulo "Muda"-->
-    <h1 id="Vida">Muda</h1>
+    <!-- Camada escura sobre o vídeo -->
+    <div class="video-overlay"></div>
 
-    <div id="Nav1">
-        <nav>
-            <!--Navegação ou <nav>-->
-            <a href="#noticias">notícias</a>
-            <a href="#como-ajudar">como ajudar</a>
-            <a href="#sobre-nos">sobre nós</a>
+    <!-- Cabeçalho -->
+    <header>
 
-            <!--Botão de sugestões de notícias da própria página. Usando svg-->
-            <div class="busca-container">
-                <button class="btn-buscar" aria-label="Abrir sugestões" aria-expanded="false" aria-controls="busca-painel">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                </button>
+        <!-- Botão hambúrguer -->
+        <button class="btn-hamburguer"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="menu-mobile">
 
-                <div class="busca-painel" id="busca-painel" hidden>
-                    <ul class="busca-lista">
-                        <li><a href="#noticia-principal">Pesquisa de Pernambuco revela impacto</a></li>
-                        <li><a href="#noticia-sp">Drones plantam 10 mil árvores por dia</a></li>
-                        <li><a href="#noticia-recife">Consumo de carne e mudanças climáticas</a></li>
-                        <li><a href="#noticia-bahia">Reciclagem reduz o lixo em 30%</a></li>
-                    </ul>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+        <!-- Título Muda -->
+        <h1 id="Vida">Muda</h1>
+
+        <div id="Nav1">
+
+            <nav>
+
+                <a href="#noticias">notícias</a>
+                <a href="#como-ajudar">como ajudar</a>
+                <a href="#sobre-nos">sobre nós</a>
+
+                <!-- Botão da lupa -->
+                <div class="busca-container">
+
+                    <button class="btn-buscar"
+                        aria-label="Abrir sugestões"
+                        aria-expanded="false"
+                        aria-controls="busca-painel">
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2">
+
+                            <circle cx="11" cy="11" r="8"></circle>
+
+                            <line x1="21"
+                                y1="21"
+                                x2="16.65"
+                                y2="16.65"></line>
+
+                        </svg>
+
+                    </button>
+
+                    <!-- Painel de sugestões -->
+                    <div class="busca-painel" id="busca-painel" hidden>
+
+                        <ul class="busca-lista">
+
+                            <li>
+                                <a href="#noticia-principal">
+                                    Pesquisa de Pernambuco revela impacto
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#noticia-sp">
+                                    Drones plantam 10 mil árvores por dia
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#noticia-recife">
+                                    Consumo de carne e mudanças climáticas
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#noticia-bahia">
+                                    Reciclagem reduz o lixo em 30%
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
                 </div>
-            </div>
-        </nav>
-    </div>
-</header>
 
-<main>
-    <!--Hero section: ocupa a tela inteira abaixo do header-->
-    <div class="titulo-principal" id="sobre-nos">
-        <h1 id="h1LIMPO">Juntos por um planeta mais <b>limpo</b><br>juntos</h1>
-        <p id="pLIMPO">Se cadastre no nosso projeto para receber atualizações e novidades!</p>
-        <p id="pFICTICIO">O projeto é totalmente fictício e criado apenas para fins educacionais.</p>
+            </nav>
 
-        <!--Botão de cadastro-->
-        <!--Botão sera usado pra forms. Cadastro pessoal ou hero section.-->
-        <button id="btn-cadastro" aria-expanded="false" aria-controls="form-cadastro">Cadastre-se</button>
-
-        <!--Formulário de cadastro (Hero section)-->
-        <div class="form-painel" id="form-cadastro" hidden>
-            <h4>Faça parte do projeto</h4>
-            <p class="form-subtitulo">Preencha seus dados e receba novidades em primeira mão.</p>
-            <form>
-                <input type="text" placeholder="Seu nome completo:" required>
-                <input type="email" placeholder="Digite seu e-mail completo:" required>
-                <input type="number" placeholder="Digite seu número:" required>
-                <button type="submit">Enviar</button>
-            </form>
         </div>
-    </div>
-    <aside class="Notícias-Em-Destaques">
-        <h4>Notícias em Destaque</h4>
-        <ul>
-            <li>
-                <a href="#">
-                    <span class="notíciasdestaque">São Paulo atinge a menor temperatura no ano</span>
-                    <img src="/imagens/noticias/noticiasãopaulo.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="notíciasdestaque">Recife implementa programa de reciclagem</span>
-                    <img src="/imagens/noticias/reciferecicla.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="notíciasdestaque">João Pessoa investe em energia solar em escolas públicas</span>
-                    <img src="/imagens/noticias/joãopessoapublica.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
-                </a>
-            </li>
-        </ul>
 
+    </header>
 
+    <main>
 
+        <!-- Seção principal -->
+        <div class="titulo-principal" id="sobre-nos">
 
-    </aside>
-    <!--notícia principal do dia. (Aparece logo abaixo do hero.)-->
-    <!--Corrigir!! Problemas de fontes.-->
-    <div class="noticia-principal" id="noticia-principal">
-        <a href="/notícias/rec.html" class="link-noticia">
-            <img src="imagens/noticias/PrincipaldodiaRecife.jpg" alt="Imagem de uma notícia do dia" class="img-noticia-principal">
-            <div class="texto-noticia-principal">
-                <h3 class="NotíciasPrincipais">Pesquisa de Pernambuco revela impacto</h3>
-                <p class="subtitulo-noticia">• Estudo aponta ligação entre pecuária e emissões de gases de efeito estufa</p>
-                <p class="meta-noticia">Há 2 horas — Em Meio Ambiente</p>
+            <h1 id="h1LIMPO">
+                Juntos por um planeta mais <b>limpo</b><br>
+                juntos
+            </h1>
+
+            <p id="pLIMPO">
+                Se cadastre no nosso projeto para receber atualizações e novidades!
+            </p>
+
+            <p id="pFICTICIO">
+                O projeto é totalmente fictício e criado apenas para fins educacionais.
+            </p>
+
+            <!-- Botão de cadastro -->
+            <button id="btn-cadastro"
+                aria-expanded="false"
+                aria-controls="form-cadastro">
+
+                Cadastre-se
+
+            </button>
+
+            <!-- Formulário de cadastro -->
+            <div class="form-painel" id="form-cadastro" hidden>
+
+                <h4>Faça parte do projeto</h4>
+
+                <p class="form-subtitulo">
+                    Preencha seus dados e receba novidades em primeira mão.
+                </p>
+
+                <form>
+
+                    <input type="text"
+                        placeholder="Seu nome completo:"
+                        required>
+
+                    <input type="email"
+                        placeholder="Digite seu e-mail completo:"
+                        required>
+
+                    <input type="number"
+                        placeholder="Digite seu número:"
+                        required>
+
+                    <button type="submit">Enviar</button>
+
+                </form>
+
             </div>
+
+        </div>
+
+        <!-- Notícias em destaque -->
+        <aside class="Notícias-Em-Destaques">
+
+            <h4>Notícias em Destaque</h4>
+
+            <ul>
+
+                <li>
+                    <a href="#">
+
+                        <span class="notíciasdestaque">
+                            São Paulo atinge a menor temperatura no ano
+                        </span>
+
+                        <img src="/imagens/noticias/noticiasãopaulo.png"
+                            alt="Imagem de uma notícia em destaque"
+                            class="img-noticia-destaque">
+
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+
+                        <span class="notíciasdestaque">
+                            Recife implementa programa de reciclagem
+                        </span>
+
+                        <img src="/imagens/noticias/reciferecicla.png"
+                            alt="Imagem de uma notícia em destaque"
+                            class="img-noticia-destaque">
+
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+
+                        <span class="notíciasdestaque">
+                            João Pessoa investe em energia solar em escolas públicas
+                        </span>
+
+                        <img src="/imagens/noticias/joãopessoapublica.png"
+                            alt="Imagem de uma notícia em destaque"
+                            class="img-noticia-destaque">
+
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+        <!-- Notícia principal -->
+        <div class="noticia-principal" id="noticia-principal">
+
+            <a href="/notícias/rec.html" class="link-noticia">
+
+                <img src="imagens/noticias/PrincipaldodiaRecife.jpg"
+                    alt="Imagem de uma notícia do dia"
+                    class="img-noticia-principal">
+
+                <div class="texto-noticia-principal">
+
+                    <h3 class="NotíciasPrincipais">
+                        Pesquisa de Pernambuco revela impacto
+                    </h3>
+
+                    <p class="subtitulo-noticia">
+                        • Estudo aponta ligação entre pecuária e emissões de gases de efeito estufa
+                    </p>
+
+                    <p class="meta-noticia">
+                        Há 2 horas — Em Meio Ambiente
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+        <!-- Notícias gerais -->
+        <section class="notíciashoje" id="noticias">
+
+            <div class="cards-container">
+
+                <div class="noticia" id="noticia-sp">
+
+                    <h3>Notícia de São Paulo</h3>
+
+                    <p class="info">
+                        Nova tecnologia de drones planta 10 mil árvores por dia em áreas desmatadas.
+                    </p>
+
+                    <p class="Local">São Paulo, Brasil</p>
+
+                    <button>Mais informações</button>
+
+                </div>
+
+                <div class="noticia" id="noticia-recife">
+
+                    <h3>Notícia de Recife</h3>
+
+                    <p class="info">
+                        Um novo estudo mostra que o consumo de carne pode ser uma das principais causas das mudanças climáticas.
+                    </p>
+
+                    <p class="Local">Recife, Brasil</p>
+
+                    <button>Mais informações</button>
+
+                </div>
+
+                <div class="noticia" id="noticia-bahia">
+
+                    <h3>Notícia da Bahia</h3>
+
+                    <p class="info">
+                        A cidade de São Paulo implementa programa de reciclagem que reduz o volume de lixo em 30%.
+                    </p>
+
+                    <p class="Local">Bahia, Brasil</p>
+
+                    <button>Mais informações</button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer id="como-ajudar">
+
+        <p>
+            © 2026 Muda / Meio Ambiente Brasil. Todos os direitos reservados.
+        </p>
+
+        <p>
+            Este site é fictício e criado apenas para fins educacionais, agradecemos a visita.
+        </p>
+
+        <a class="github-link"
+            href="https://github.com/Mathhh1/Vida-Brasil-Meio-ambiente"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            GitHub
+
         </a>
-    </div>
 
-    <!--notícias gerais.-->
-    <section class="notíciashoje" id="noticias">
-        <div class="cards-container">
-            <div class="noticia" id="noticia-sp">
-                <h3>Notícia de São Paulo</h3>
-                <p class="info">Nova tecnologia de drones planta 10 mil árvores por dia em áreas desmatadas.</p>
-                <p class="Local">São Paulo, Brasil</p>
-                <button>Mais informações</button>
-            </div>
-            <div class="noticia" id="noticia-recife">
-                <h3>Notícia de Recife</h3>
-                <p class="info">Um novo estudo mostra que o consumo de carne pode ser uma das principais causas das mudanças climáticas.</p>
-                <p class="Local">Recife, Brasil</p>
-                <button>Mais informações</button>
-            </div>
-            <div class="noticia" id="noticia-bahia">
-                <h3>Notícia da Bahia</h3>
-                <p class="info">A cidade de São Paulo implementa programa de reciclagem que reduz o volume de lixo em 30%.</p>
-                <p class="Local">Bahia, Brasil</p>
-                <button>Mais informações</button>
-            </div>
-        </div>
-    </section>
+    </footer>
 
-</main>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 
-<footer id="como-ajudar">
-    <!--Rodapé do site-->
-    <p>© 2026 Muda / Meio Ambiente Brasil. Todos os direitos reservados.</p>
-    <p>Este site é fictício e criado apenas para fins educacionais, agradecemos a visita.</p>
-    <a class="github-link" href="https://github.com/Mathhh1/Vida-Brasil-Meio-ambiente" target="_blank">GitHub</a>
-</footer>
-
-<!--link para o arquivo JavaScript-->
-<script src="script.js"></script>
 </body>
-</html>
-
-<!--Coisas para corrigir.-->
-<!--Fonte mais adequada para o estilo do site.-->
-<!--Formulário de cadastro-->
-<!--Site separado das notícias-->
