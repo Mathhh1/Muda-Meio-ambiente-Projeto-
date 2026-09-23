@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
+
     <title>Muda / Meio Ambiente Brasil</title>
 </head>
+
 <body>
 
 <!--Overlay e menu mobile ficam fora do header, senão o z-index do header os prende-->
@@ -32,34 +35,25 @@
     <!--Parte de titulo "Muda"-->
     <h1 id="Vida">Muda</h1>
 
-    <div id="Nav1">
-        <nav>
-            <!--Navegação ou <nav>-->
-            <a href="#noticias">notícias</a>
-            <a href="#como-ajudar">como ajudar</a>
-            <a href="#sobre-nos">sobre nós</a>
 
-            <!--Botão de sugestões de notícias da própria página. Usando svg-->
-            <div class="busca-container">
-                <button class="btn-buscar" aria-label="Abrir sugestões" aria-expanded="false" aria-controls="busca-painel">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                </button>
+    <!-- Cabeçalho -->
+    <header>
 
-                <div class="busca-painel" id="busca-painel" hidden>
-                    <ul class="busca-lista">
-                        <li><a href="#noticia-principal">Pesquisa de Pernambuco revela impacto</a></li>
-                        <li><a href="#noticia-sp">Drones plantam 10 mil árvores por dia</a></li>
-                        <li><a href="#noticia-recife">Consumo de carne e mudanças climáticas</a></li>
-                        <li><a href="#noticia-bahia">Reciclagem reduz o lixo em 30%</a></li>
-                    </ul>
-                </div>
-            </div>
+        <!-- Botão hambúrguer -->
+        <button class="btn-hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Menu lateral -->
+        <nav class="menu-mobile" id="menu-mobile">
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#ajudar">Como ajudar</a></li>
+                <li><a href="#noticias">Notícias</a></li>
+            </ul>
         </nav>
-    </div>
-</header>
 
 <main>
     <!--Hero section: ocupa a tela inteira abaixo do header, com margens alinhadas ao header-->
@@ -68,23 +62,82 @@
         <p id="pLIMPO">Se cadastre no nosso projeto para receber atualizações e novidades!</p>
         <p id="pFICTICIO">O projeto é totalmente fictício e criado apenas para fins educacionais.</p>
 
-        <!--Botão de cadastro-->
-        <!--Botão sera usado pra forms. Cadastro pessoal ou hero section.-->
-        <button id="btn-cadastro" aria-expanded="false" aria-controls="form-cadastro">Cadastre-se</button>
+        <!-- Título Muda -->
+        <h1 id="Vida">Muda</h1>
 
-        <!--Formulário de cadastro (Hero section)-->
-        <div class="form-painel" id="form-cadastro" hidden>
-            <h4>Faça parte do projeto</h4>
-            <p class="form-subtitulo">Preencha seus dados e receba novidades em primeira mão.</p>
-            <form>
-                <input type="text" placeholder="Seu nome completo:" required>
-                <input type="email" placeholder="Digite seu e-mail completo:" required>
-                <input type="number" placeholder="Digite seu número:" required>
-                <button type="submit">Enviar</button>
-            </form>
+        <div id="Nav1">
+
+            <nav>
+
+                <a href="#noticias">notícias</a>
+                <a href="#como-ajudar">como ajudar</a>
+                <a href="#sobre-nos">sobre nós</a>
+
+                <!-- Botão da lupa -->
+                <div class="busca-container">
+
+                    <button class="btn-buscar"
+                        aria-label="Abrir sugestões"
+                        aria-expanded="false"
+                        aria-controls="busca-painel">
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2">
+
+                            <circle cx="11" cy="11" r="8"></circle>
+
+                            <line x1="21"
+                                y1="21"
+                                x2="16.65"
+                                y2="16.65"></line>
+
+                        </svg>
+
+                    </button>
+
+                    <!-- Painel de sugestões -->
+                    <div class="busca-painel" id="busca-painel" hidden>
+
+                        <ul class="busca-lista">
+
+                            <li>
+                                <a href="#noticia-principal">
+                                    Pesquisa de Pernambuco revela impacto
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#noticia-sp">
+                                    Drones plantam 10 mil árvores por dia
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#noticia-recife">
+                                    Consumo de carne e mudanças climáticas
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#noticia-bahia">
+                                    Reciclagem reduz o lixo em 30%
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </nav>
+
         </div>
-    </div>
-
     <div class="layout-noticias">
         <!-- Notícias em destaque, à esquerda da matéria principal -->
         <aside class="Notícias-Em-Destaques">
@@ -124,41 +177,12 @@
         </div>
     </div>
 
-    <!--notícias gerais.-->
-    <section class="notíciashoje" id="noticias">
-        <div class="cards-container">
-            <div class="noticia" id="noticia-sp">
-                <h3>Notícia de São Paulo</h3>
-                <p class="info">Nova tecnologia de drones planta 10 mil árvores por dia em áreas desmatadas.</p>
-                <p class="Local">São Paulo, Brasil</p>
-                <button>Mais informações</button>
-            </div>
-            <div class="noticia" id="noticia-recife">
-                <h3>Notícia de Recife</h3>
-                <p class="info">Um novo estudo mostra que o consumo de carne pode ser uma das principais causas das mudanças climáticas.</p>
-                <p class="Local">Recife, Brasil</p>
-                <button>Mais informações</button>
-            </div>
-            <div class="noticia" id="noticia-bahia">
-                <h3>Notícia da Bahia</h3>
-                <p class="info">A cidade de São Paulo implementa programa de reciclagem que reduz o volume de lixo em 30%.</p>
-                <p class="Local">Bahia, Brasil</p>
-                <button>Mais informações</button>
-            </div>
-        </div>
-    </section>
 
-</main>
+    </footer>
 
-<footer id="como-ajudar">
-    <!--Rodapé do site-->
-    <p>© 2026 Muda / Meio Ambiente Brasil. Todos os direitos reservados.</p>
-    <p>Este site é fictício e criado apenas para fins educacionais, agradecemos a visita.</p>
-    <a class="github-link" href="https://github.com/Mathhh1/Vida-Brasil-Meio-ambiente" target="_blank">GitHub</a>
-</footer>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 
-<!--link para o arquivo JavaScript-->
-<script src="script.js"></script>
 </body>
 </html>
 
