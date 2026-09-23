@@ -96,13 +96,55 @@ formCadastro.addEventListener('submit', (evento) => {
 
 const botaoMenu = document.querySelector(".btn-hamburguer");
 const menuMobile = document.querySelector(".menu-mobile");
+const menuOverlay = document.querySelector(".menu-overlay");
 
-botaoMenu.addEventListener("click", function () {
+function abrirMenuMobile() {
+    botaoMenu.classList.add("ativo");
+    menuMobile.classList.add("ativo");
+    menuOverlay.classList.add("ativo");
 
-    botaoMenu.classList.toggle("ativo");
-    menuMobile.classList.toggle("ativo");
+    botaoMenu.setAttribute("aria-expanded", "true");
+}
 
-    const menuAberto = botaoMenu.classList.contains("ativo");
+function fecharMenuMobile() {
+    botaoMenu.classList.remove("ativo");
+    menuMobile.classList.remove("ativo");
+    menuOverlay.classList.remove("ativo");
 
-    botaoMenu.setAttribute("aria-expanded", menuAberto);
+    botaoMenu.setAttribute("aria-expanded", "false");
+}
+
+function menuMobileAberto() {
+    return menuMobile.classList.contains("ativo");
+}
+
+botaoMenu.addEventListener("click", function (evento) {
+    evento.stopPropagation();
+
+    if (menuMobileAberto()) {
+        fecharMenuMobile();
+    } else {
+        abrirMenuMobile();
+    }
+});
+
+menuOverlay.addEventListener("click", fecharMenuMobile);
+
+menuMobile.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", fecharMenuMobile);
+});
+
+document.addEventListener("click", (evento) => {
+    const clicouNoMenu = menuMobile.contains(evento.target);
+    const clicouNoBotao = botaoMenu.contains(evento.target);
+
+    if (menuMobileAberto() && !clicouNoMenu && !clicouNoBotao) {
+        fecharMenuMobile();
+    }
+});
+
+document.addEventListener("keydown", (evento) => {
+    if (evento.key === "Escape" && menuMobileAberto()) {
+        fecharMenuMobile();
+    }
 });
