@@ -75,6 +75,21 @@ nav a:focus {
     padding: 40px;
 }
 
+.lista-noticias-principais {
+    grid-area: principal;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-width: 0;
+}
+
+.linha-pesquisas {
+    width: 90%;
+    margin: 0 auto;
+    border: 0;
+    border-top: 0.7px solid #f1f1f1;
+}
+
 .Notícias-Em-Destaques{
     grid-area: destaques;
     background-color: #ffffff;
@@ -574,7 +589,33 @@ body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
 .noticia button:hover {
     background-color: #31411b;
 }
+.campanhas-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 20px;
+    padding: 24px 0;
+}
 
+.campanhas-container > .campanhas,
+.campanhas-container > .camapanhas {
+    box-sizing: border-box;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+.linhas-div{
+    width: 100%;
+  margin: auto;
+  border: 1;
+  border-top: 1px solid #eee;
+}
 /* =========================================
    RODAPÉ
 ========================================= */
@@ -714,6 +755,10 @@ footer {
     }
 
     .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .campanhas-container {
         grid-template-columns: 1fr;
     }
 
