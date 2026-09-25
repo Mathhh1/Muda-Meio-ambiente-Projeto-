@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 201" role="img" aria-labelledby="title">
+  <title id="title">Muda</title>
+  <g fill="#314d2d">
+    <!-- Folhas e caule -->
+    <path d="M142 101C96 94 57 68 34 31c42-6 81 1 111 24-1-20 4-38 16-55 18 33 20 61 8 86 22-2 42 1 61 10l-6 31c-24-9-44-10-62-4l-1 29 19 31c-25 0-43-12-53-34l-9-21-20-2c-19-2-32-13-37-31 19 7 39 9 60 5z"/>
+    <!-- Broto -->
+    <path d="M126 45c-21-20-41-27-64-24 16 22 37 34 64 35z" fill="#88a96d"/>
+    <path d="M160 50c-2-20 2-37 15-53 8 19 7 38-1 56z" fill="#88a96d"/>
+    <!-- Mãos envolvendo o broto -->
+    <path d="M187 105c26-35 55-57 86-68 22-8 41 2 45 22 2 9 0 19-6 28l-24 31c-13 17-33 27-54 27h-47z" fill="#88a96d"/>
+    <path d="M191 111c-19-4-34 1-44 15-8 11-6 25 7 32l37 19c16 8 34 11 52 8l28-5-21-35-16 1c-19 1-33-9-43-35z"/>
+    <circle cx="285" cy="67" r="34" fill="#d77b4f"/>
+    <path d="M272 36c21 9 34 29 34 51 0 5-1 10-2 14l-23-4c3-12-2-24-12-31-8-6-18-8-28-5l-7-22c12-4 25-5 38-3z" fill="#88a96d"/>
+  </g>
+  <text x="340" y="158" fill="#314d2d" font-family="Poppins, Arial, sans-serif" font-size="151" font-weight="700" letter-spacing="-8">muda</text>
+</svg>

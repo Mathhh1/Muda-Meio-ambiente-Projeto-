@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- ALTERE: título da aba -->
+    <title>Notícia — Muda</title>
+
+    <style>
+
+        /* ── Reset básico ──────────────────────────────── */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f7f5;
+            color: #333;
+        }
+
+        /* ── Cores do projeto ──────────────────────────── */
+        :root {
+            --verde:        rgb(78, 105, 75);
+            --verde-escuro: #31411b;
+            --verde-claro:  #e4ead9;
+            --texto:        #434F46;
+            --meta:         #777;
+            --borda:        #e0e0e0;
+        }
+
+        /* ================================================
+           HEADER — igual ao index.html
+        ================================================ */
+        header {
+            background: var(--verde);
+            border-radius: 0 0 24px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            height: 70px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* Logo "Muda" centralizado */
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            display: block;
+            width: auto;
+            height: 54px;
+            max-width: min(42vw, 220px);
+            object-fit: contain;
+        }
+
+        /* Links de navegação */
+        header nav {
+            margin-left: auto;
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        header nav a {
+            color: rgba(255,255,255,.9);
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        header nav a:hover { color: #7ed321; }
+
+        /* Ícone de hambúrguer (visual, sem JS nesta versão standalone) */
+        .hamburguer {
+            width: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburguer span {
+            display: block;
+            height: 3px;
+            background: #fff;
+            border-radius: 3px;
+        }
+
+        /* Ícone de lupa */
+        .lupa {
+            color: rgba(255,255,255,.9);
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* ================================================
+           CONTEÚDO DA NOTÍCIA
+        ================================================ */
+        .pagina {
+            max-width: 820px;
+            margin: 36px auto;
+            padding: 0 20px 60px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            font-size: 13px;
+            color: var(--meta);
+            margin-bottom: 18px;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .breadcrumb a {
+            color: var(--verde-escuro);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* Tag de categoria */
+        .categoria {
+            display: inline-block;
+            background: var(--verde);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+
+        /* Título */
+        /* ALTERE: texto do h1 */
+        h1.titulo {
+            font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+            font-weight: 700;
+            color: var(--verde-escuro);
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+
+        /* Subtítulo */
+        /* ALTERE: texto do p.subtitulo */
+        p.subtitulo {
+            font-size: 1rem;
+            color: var(--texto);
+            line-height: 1.65;
+            margin-bottom: 20px;
+            max-width: 720px;
+        }
+
+        /* Linha de autor e data */
+        .meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 0;
+            border-top: 1px solid var(--borda);
+            border-bottom: 1px solid var(--borda);
+            margin-bottom: 24px;
+        }
+
+        /* Avatar com iniciais do autor */
+        /* ALTERE: as letras dentro do .avatar */
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--verde-claro);
+            color: var(--verde-escuro);
+            font-weight: 700;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .meta-info { flex: 1; }
+
+        /* ALTERE: nome do autor */
+        .meta-autor {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--texto);
+        }
+
+        /* ALTERE: data de publicação */
+        .meta-data {
+            font-size: 12px;
+            color: var(--meta);
+            margin-top: 2px;
+        }
+
+        /* Botão compartilhar */
+        .btn-compartilhar {
+            border: 1px solid var(--borda);
+            background: none;
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-family: 'Poppins', sans-serif;
+            color: var(--meta);
+            cursor: pointer;
+            transition: border-color .2s, color .2s;
+        }
+
+        .btn-compartilhar:hover {
+            border-color: var(--verde);
+            color: var(--verde);
+        }
+
+        /* ── Imagem principal ──────────────────────────── */
+        /* ALTERE: substitua .placeholder por <img src="..." class="img-noticia"> */
+        .img-noticia {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Placeholder visual enquanto não há imagem */
+        .placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 7;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--verde) 0%, #7ab07c 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: rgba(255,255,255,.6);
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        /* ALTERE: legenda da imagem */
+        .legenda {
+            font-size: 12px;
+            color: var(--meta);
+            font-style: italic;
+            margin-bottom: 28px;
+        }
+
+        .legenda strong { font-style: normal; color: var(--texto); }
+
+        /* ── Corpo da matéria ──────────────────────────── */
+        /* ALTERE: parágrafos e intertítulos dentro de .corpo */
+        .corpo {
+            font-size: .98rem;
+            line-height: 1.85;
+            color: var(--texto);
+            max-width: 700px;
+        }
+
+        .corpo p { margin-bottom: 20px; }
+
+        /* Intertítulo — divide a matéria em blocos */
+        /* ALTERE: texto dos h2 dentro de .corpo */
+        .corpo h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            margin: 28px 0 10px;
+        }
+
+        .corpo a {
+            color: var(--verde-escuro);
+            font-weight: 600;
+        }
+
+        /* ── Caixa de dados ────────────────────────────── */
+        /* ALTERE: números e descrições dentro de .caixa-dados */
+        .caixa-dados {
+            background: #fff;
+            border: 1px solid var(--borda);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin: 26px 0;
+        }
+
+        .caixa-titulo {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+            color: var(--verde);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .dados-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            gap: 12px;
+        }
+
+        /* ALTERE: número grande dentro de .num */
+        .num {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            line-height: 1;
+        }
+
+        /* ALTERE: descrição abaixo do número */
+        .num-label {
+            font-size: 11px;
+            color: var(--meta);
+            margin-top: 4px;
+            line-height: 1.3;
+        }
+
+        /* ── Citação em destaque ───────────────────────── */
+        /* ALTERE: fala e nome da fonte dentro de .citacao */
+        .citacao {
+            border-left: 4px solid var(--verde);
+            background: var(--verde-claro);
+            border-radius: 0 8px 8px 0;
+            padding: 16px 22px;
+            margin: 24px 0;
+        }
+
+        .citacao p {
+            font-size: 1rem;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--verde-escuro);
+            line-height: 1.5;
+            margin-bottom: 8px !important;
+        }
+
+        .citacao cite {
+            font-size: 12px;
+            color: var(--meta);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* ── Tags ──────────────────────────────────────── */
+        /* ALTERE: textos dos links .tag */
+        .tags-section {
+            margin-top: 30px;
+            padding-top: 18px;
+            border-top: 1px solid var(--borda);
+        }
+
+        .tags-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+            color: var(--meta);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+        .tag {
+            font-size: 12px;
+            color: var(--verde-escuro);
+            background: var(--verde-claro);
+            border: 1px solid #c4d4b8;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: background .2s;
+        }
+
+        .tag:hover { background: #cfdfc0; }
+
+        /* ── Notícias relacionadas ─────────────────────── */
+        /* ALTERE: links, títulos e datas dos .card-rel */
+        .relacionadas {
+            margin-top: 44px;
+            padding-top: 16px;
+            border-top: 3px solid var(--verde);
+        }
+
+        .rel-titulo {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--verde);
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .rel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 18px;
+        }
+
+        /* ALTERE: href de cada .card-rel aponta para outra notícia */
+        .card-rel { text-decoration: none; color: inherit; display: block; }
+
+        /* Thumbnail sem imagem — gradiente de cor */
+        .rel-thumb {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--verde), #7ab07c);
+            display: block;
+            margin-bottom: 9px;
+            object-fit: cover;
+        }
+
+        /* Variações de cor para diferenciar os cards */
+        .rel-thumb.b { background: linear-gradient(135deg, #31411b, #5a8f5b); }
+        .rel-thumb.c { background: linear-gradient(135deg, #4a6b4a, #92c293); }
+
+        .rel-card-titulo {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--texto);
+            line-height: 1.35;
+        }
+
+        .card-rel:hover .rel-card-titulo { color: var(--verde); }
+
+        .rel-data {
+            font-size: 11px;
+            color: var(--meta);
+            margin-top: 3px;
+        }
+
+        /* ================================================
+           FOOTER — igual ao index.html
+        ================================================ */
+        footer {
+            background: #171815;
+            color: rgba(255,255,255,.75);
+            text-align: center;
+            padding: 36px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #8E9C78;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        /* ================================================
+           RESPONSIVIDADE MOBILE
+        ================================================ */
+        @media (max-width: 600px) {
+            header nav a { display: none; }
+            .btn-compartilhar { display: none; }
+            .pagina { padding: 0 14px 40px; }
+            .dados-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ================================================
+         HEADER
+         ALTERE: links de navegação se necessário
+    ================================================ -->
+    <header>
+        <div class="hamburguer">
+            <span></span><span></span><span></span>
+        </div>
+
+        <a href="../index.html" class="logo" aria-label="Muda — início">
+            <img src="../imagens/muda-logo-site.svg" alt="Muda / Meio Ambiente Brasil">
+        </a>
+
+        <nav>
+            <a href="../index.html#noticias">notícias</a>
+            <a href="../index.html#como-ajudar">como ajudar</a>
+            <a href="../index.html#sobre-nos">sobre nós</a>
+            <span class="lupa">🔍</span>
+        </nav>
+    </header>
+
+
+    <!-- ================================================
+         CONTEÚDO PRINCIPAL
+    ================================================ -->
+    <main>
+        <div class="pagina">
+
+            <!-- Breadcrumb: ALTERE a categoria no último item -->
+            <nav class="breadcrumb">
+                <a href="../index.html">Início</a>
+                <span>/</span>
+                <a href="../index.html#noticias">Notícias</a>
+                <span>/</span>
+                Meio Ambiente <!-- ALTERE: categoria -->
+            </nav>
+
+            <!-- ALTERE: categoria da notícia -->
+            <span class="categoria">Meio Ambiente</span>
+
+            <!-- ALTERE: título principal -->
+            <h1 class="titulo">
+                Pesquisa de Pernambuco revela impacto da pecuária nas emissões de gases de efeito estufa
+            </h1>
+
+            <!-- ALTERE: subtítulo -->
+            <p class="subtitulo">
+                Estudo da UFPE aponta que o setor pecuário responde por 18% das emissões regionais de metano, reacendendo o debate sobre práticas sustentáveis no campo.
+            </p>
+
+            <!-- ALTERE: iniciais, nome e data -->
+            <div class="meta">
+                <div class="avatar">CM</div>
+                <div class="meta-info">
+                    <div class="meta-autor">Carlos Mendonça — Muda / Meio Ambiente Brasil</div>
+                    <div class="meta-data">25 de setembro de 2026 · atualizado às 14h32</div>
+                </div>
+                <button class="btn-compartilhar"
+                    onclick="navigator.share
+                        ? navigator.share({title: document.title, url: location.href})
+                        : alert('Copie o link da barra de endereço.')">
+                    ↗ Compartilhar
+                </button>
+            </div>
+
+            <!-- IMAGEM PRINCIPAL
+                 ALTERE: substitua o .placeholder por:
+                 <img src="../imagens/noticias/foto.jpg"
+                      alt="descrição" class="img-noticia"> -->
+            <figure>
+                <div class="placeholder">
+                    <svg width="44" height="44" viewBox="0 0 48 48" fill="none">
+                        <rect x="4" y="28" width="40" height="16" rx="3" fill="rgba(255,255,255,.3)"/>
+                        <circle cx="24" cy="20" r="12" fill="rgba(255,255,255,.3)"/>
+                    </svg>
+                    Adicione a imagem aqui
+                </div>
+                <!-- ALTERE: legenda e crédito da foto -->
+                <figcaption class="legenda">
+                    <strong>Sertão de Pernambuco —</strong>
+                    Rebanho bovino em fazenda do interior monitorada durante a pesquisa. (Foto: Muda / Arquivo)
+                </figcaption>
+            </figure>
+
+            <!-- ============================================
+                 CORPO DA MATÉRIA
+                 ALTERE: parágrafos, h2 e blocos abaixo
+            ============================================ -->
+            <div class="corpo">
+
+                <p>
+                    Um estudo inédito da Universidade Federal de Pernambuco (UFPE) revelou que a pecuária extensiva é responsável por <strong>18% das emissões de metano</strong> registradas no estado — percentual superior à média nacional de 14%. A pesquisa monitorou 40 propriedades rurais entre o Agreste e o Sertão ao longo de dois anos.
+                </p>
+
+                <p>
+                    O levantamento utilizou sensores de gás instalados em cercas e drones com câmeras infravermelhas para mapear as emissões em tempo real. A metodologia é inovadora no Nordeste e pode ser replicada por órgãos públicos com custo relativamente baixo.
+                </p>
+
+                <!-- CAIXA DE DADOS — ALTERE números e labels -->
+                <div class="caixa-dados">
+                    <p class="caixa-titulo">Impacto do estudo em números</p>
+                    <div class="dados-grid">
+                        <div>
+                            <div class="num">18%</div><!-- ALTERE -->
+                            <div class="num-label">das emissões de metano em PE</div><!-- ALTERE -->
+                        </div>
+                        <div>
+                            <div class="num">40</div><!-- ALTERE -->
+                            <div class="num-label">fazendas monitoradas</div><!-- ALTERE -->
+                        </div>
+                        <div>
+                            <div class="num">2 anos</div><!-- ALTERE -->
+                            <div class="num-label">de coleta de dados</div><!-- ALTERE -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ALTERE: intertítulo -->
+                <h2>O que dizem os especialistas</h2>
+
+                <p>
+                    Para a coordenadora da pesquisa, professora Ana Figueiredo, os dados são um alerta, mas também apontam caminhos. "A pecuária intensiva, com pastagem bem manejada, pode reduzir emissões em até 40% sem diminuir a produtividade", afirma.
+                </p>
+
+                <!-- CITAÇÃO — ALTERE texto e fonte -->
+                <div class="citacao">
+                    <p>"A pecuária pode e precisa fazer parte da solução climática, não apenas do problema."</p>
+                    <cite>Profa. Ana Figueiredo — UFPE, coordenadora da pesquisa</cite>
+                </div>
+
+                <p>
+                    Cerca de 62% dos produtores entrevistados relataram alterações no regime de chuvas nos últimos dez anos, e mais da metade demonstrou interesse em adotar práticas de baixo carbono com apoio governamental.
+                </p>
+
+                <!-- ALTERE: intertítulo -->
+                <h2>Próximos passos</h2>
+
+                <p>
+                    A UFPE apresentará as conclusões à Secretaria de Meio Ambiente de Pernambuco ainda este mês. A expectativa é subsidiar um programa estadual de pecuária de baixo carbono, com créditos rurais diferenciados para produtores aderentes.
+                </p>
+
+                <p>
+                    Saiba como sua comunidade pode contribuir:
+                    <a href="../index.html#como-ajudar">acesse Como Ajudar</a>.
+                </p>
+
+            </div>
+            <!-- fim .corpo -->
+
+            <!-- TAGS — ALTERE os textos dos links -->
+            <div class="tags-section">
+                <p class="tags-label">Tópicos</p>
+                <div class="tags">
+                    <a href="#" class="tag">Pecuária</a>
+                    <a href="#" class="tag">Metano</a>
+                    <a href="#" class="tag">Pernambuco</a>
+                    <a href="#" class="tag">Emissões</a>
+                    <a href="#" class="tag">Clima</a>
+                    <a href="#" class="tag">UFPE</a>
+                </div>
+            </div>
+
+            <!-- NOTÍCIAS RELACIONADAS — ALTERE href, títulos e datas -->
+            <section class="relacionadas">
+                <p class="rel-titulo">Veja também</p>
+                <div class="rel-grid">
+
+                    <a href="modelo-noticia.html" class="card-rel">
+                        <!-- Com foto: <img src="../imagens/noticias/foto.jpg" class="rel-thumb"> -->
+                        <div class="rel-thumb"></div><!-- ALTERE: adicione classe .b ou .c para cor diferente -->
+                        <div class="rel-card-titulo">Drones plantam 10 mil árvores por dia em áreas desmatadas de SP</div>
+                        <div class="rel-data">22 set. 2026</div>
+                    </a>
+
+                    <a href="modelo-noticia.html" class="card-rel">
+                        <div class="rel-thumb b"></div>
+                        <div class="rel-card-titulo">Recife lança programa de reciclagem e reduz lixo urbano em 30%</div>
+                        <div class="rel-data">18 set. 2026</div>
+                    </a>
+
+                    <a href="modelo-noticia.html" class="card-rel">
+                        <div class="rel-thumb c"></div>
+                        <div class="rel-card-titulo">Pesquisadores analisam impactos humanos nos oceanos brasileiros</div>
+                        <div class="rel-data">10 set. 2026</div>
+                    </a>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+
+    <!-- ================================================
+         FOOTER — igual ao index.html
+    ================================================ -->
+    <footer>
+        <p>© 2026 Muda / Meio Ambiente Brasil. Todos os direitos reservados.</p>
+        <p>Este site é fictício e criado apenas para fins educacionais.</p>
+        <a href="https://github.com/Mathhh1/Vida-Brasil-Meio-ambiente" target="_blank">GitHub</a>
+    </footer>
+
+    <!--
+        ATENÇÃO: o script.js do site principal (menu hambúrguer + busca)
+        não funciona neste preview standalone. No seu projeto local,
+        descomente a linha abaixo:
+    -->
+    <!-- <script src="../script.js"></script> -->
+
+</body>
+</html>
