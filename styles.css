@@ -369,10 +369,26 @@ body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
     align-items: center;
     justify-content: center;
     padding: 8px;
+    border-radius: 50%;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.3s ease;
 }
 
 .btn-buscar:hover {
     color: #7ed321;
+}
+
+.btn-buscar svg {
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-buscar[aria-expanded="true"] {
+    color: #b7ef79;
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: scale(1.06);
+}
+
+.btn-buscar[aria-expanded="true"] svg {
+    transform: rotate(90deg) scale(0.9);
 }
 
 /* =========================================
@@ -393,6 +409,20 @@ body.menu-mobile-aberto .btn-hamburguer span:nth-child(3) {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     padding: 8px;
     z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.96);
+    transform-origin: top right;
+    transition:
+        opacity 0.25s ease,
+        transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+        visibility 0.3s ease;
+}
+
+.busca-painel.aberto {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
 }
 
 .busca-painel[hidden] {

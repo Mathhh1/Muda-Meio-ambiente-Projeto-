@@ -1,4 +1,4 @@
-/* ===== Menu hamburguer ===== */
+/* Menu */
 const btnHamburguer = document.querySelector('.btn-hamburguer');
 const menuMobile = document.getElementById('menu-mobile');
 const menuOverlay = document.querySelector('[data-menu-overlay]');
@@ -61,43 +61,52 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-/* ===== Busca / sugestões (lupa) ===== */
+/* Busca */
 const btnBuscar = document.querySelector('.btn-buscar');
 const painel = document.getElementById('busca-painel');
+let timeoutBusca;
 
 function abrirBusca() {
+    clearTimeout(timeoutBusca);
     painel.hidden = false;
     btnBuscar.setAttribute('aria-expanded', 'true');
+    btnBuscar.setAttribute('aria-label', 'Fechar sugestões');
+    requestAnimationFrame(() => painel.classList.add('aberto'));
 }
 
 function fecharBusca() {
-    painel.hidden = true;
+    clearTimeout(timeoutBusca);
+    painel.classList.remove('aberto');
     btnBuscar.setAttribute('aria-expanded', 'false');
+    btnBuscar.setAttribute('aria-label', 'Abrir sugestões');
+    timeoutBusca = setTimeout(() => {
+        painel.hidden = true;
+    }, 300);
 }
 
-// Abre/fecha ao clicar na lupa
+// Abre ou fecha a busca.
 btnBuscar.addEventListener('click', (e) => {
     e.stopPropagation();
     painel.hidden ? abrirBusca() : fecharBusca();
 });
 
-// Fecha ao escolher uma sugestão
+// Fecha depois de escolher uma notícia.
 painel.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', fecharBusca);
 });
 
-// Fecha ao clicar fora do painel
+// Fecha ao clicar fora.
 document.addEventListener('click', (e) => {
     if (!painel.hidden && !painel.contains(e.target)) fecharBusca();
 });
 
-// Fecha com a tecla Esc
+// Fecha com Esc.
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !painel.hidden) fecharBusca();
 });
 
 
-/* ===== Formulário de cadastro (Hero section) ===== */
+/* Formulário de cadastro */
 const btnCadastro = document.getElementById('btn-cadastro');
 const formPainel = document.getElementById('form-cadastro');
 const formCadastro = formPainel.querySelector('form');
@@ -107,12 +116,12 @@ btnCadastro.addEventListener('click', () => {
 
     if (estaEscondido) {
         formPainel.hidden = false;
-        // pequeno delay pra garantir que a transição CSS rode
+        // Inicia a animação.
         setTimeout(() => formPainel.classList.add('aberto'), 10);
         btnCadastro.textContent = 'Cancelar';
     } else {
         formPainel.classList.remove('aberto');
-        // espera a animação de saída terminar antes de esconder de vez
+        // Esconde depois da animação.
         setTimeout(() => formPainel.hidden = true, 250);
         btnCadastro.textContent = 'Cadastre-se';
     }
@@ -121,7 +130,7 @@ btnCadastro.addEventListener('click', () => {
 });
 
 formCadastro.addEventListener('submit', (evento) => {
-    evento.preventDefault(); // impede o formulário de recarregar a página
+    evento.preventDefault(); // Evita recarregar a página.
     alert('Cadastro enviado com sucesso! (simulação)');
-    formCadastro.reset(); // limpa os campos
+    formCadastro.reset(); // Limpa os campos.
 });

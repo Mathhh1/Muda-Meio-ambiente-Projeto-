@@ -11,12 +11,12 @@
     <title>Muda / Meio Ambiente Brasil</title>
 </head>
 <body>
-<!--video de fundo. (Localizado na parte de cadastro.)-->
+<!-- Vídeo de fundo -->
     <video autoplay muted loop playsinline id="video-background">
         <source src="/imagens/home-background.mp4" type="video/mp4">
     </video>
 
-<!--Overlay e menu mobile ficam fora do header, senão o z-index do header os prende-->
+<!-- Fundo do menu mobile -->
 <div class="menu-overlay" data-menu-overlay hidden></div>
 
 <nav class="menu-mobile" id="menu-mobile" aria-label="Menu principal" hidden>
@@ -26,26 +26,26 @@
 </nav>
 
 <header>
-    <!--Botão hambúrguer (canto esquerdo)-->
+    <!-- Botão do menu -->
     <button class="btn-hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
-    <!-- Logo centralizada -->
+    <!-- Logo -->
     <a href="index.html" class="logo-inicio" aria-label="Muda — início">
         <img src="imagens/logosite.png" alt="Muda / Meio Ambiente Brasil" id="vida">
     </a>
 
     <div id="Nav1">
         <nav>
-            <!--Navegação ou <nav>-->
+            <!-- Navegação -->
             <a href="#noticias">notícias</a>
             <a href="#como-ajudar">como ajudar</a>
             <a href="#sobre-nos">sobre nós</a>
 
-            <!--Botão de sugestões de notícias da própria página. Usando svg-->
+            <!-- Botão de busca -->
             <div class="busca-container">
                 <button class="btn-buscar" aria-label="Abrir sugestões" aria-expanded="false" aria-controls="busca-painel">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -68,59 +68,59 @@
 </header>
 
 <main>
-    <!--Hero section: ocupa a tela inteira abaixo do header, com margens alinhadas ao header-->
+    <!-- Apresentação do site -->
     <div class="titulo-principal" id="sobre-nos">
-        <h1 id="h1LIMPO">Juntos por um planeta mais <b>limpo</b><br>juntos</h1>
+        <h1 id="h1LIMPO">Juntos por um planeta mais <b>limpo</b></h1>
         <p id="pLIMPO">Se cadastre no nosso projeto para receber atualizações e novidades!</p>
         <p id="pFICTICIO">O projeto é totalmente fictício e criado apenas para fins educacionais.</p>
 
-        <!--Botão de cadastro-->
+        <!-- Cadastro -->
         <button id="btn-cadastro" aria-expanded="false" aria-controls="form-cadastro">Cadastre-se</button>
 
-        <!--Formulário de cadastro (Hero section)-->
+        <!-- Formulário -->
         <div class="form-painel" id="form-cadastro" hidden>
             <h4>Faça parte do projeto</h4>
             <p class="form-subtitulo">Preencha seus dados e receba novidades em primeira mão.</p>
             <form>
                 <input type="text" placeholder="Seu nome completo:" required>
                 <input type="email" placeholder="Digite seu e-mail completo:" required>
-                <input type="number" placeholder="Digite seu número:" required>
+                <input type="text" placeholder="Digite seu número:" required>
                 <button type="submit">Enviar</button>
             </form>
         </div>
     </div>
 
     <div class="layout-noticias">
-        <!-- Notícias em destaque, à esquerda da matéria principal -->
+        <!-- Notícias em destaque -->
         <aside class="Notícias-Em-Destaques">
             <h4>Notícias em Destaque</h4>
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="notícias/sp-temperatura.html">
                         <span class="notíciasdestaque">São Paulo atinge a menor temperatura no ano</span>
-                        <img src="imagens/noticias/noticiasãopaulo.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
+                        <img src="imagens/noticias/sao-paulo-temperatura.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="notícias/recife-reciclagem.html">
                         <span class="notíciasdestaque">Recife implementa programa de reciclagem</span>
-                        <img src="imagens/noticias/reciferecicla.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
+                        <img src="imagens/noticias/recife-reciclagem.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="notícias/joao-pessoa-solar.html">
                         <span class="notíciasdestaque">João Pessoa investe em energia solar em escolas públicas</span>
-                        <img src="imagens/noticias/joãopessoapublica.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
+                        <img src="imagens/noticias/joao-pessoa-solar.png" alt="Imagem de uma notícia em destaque" class="img-noticia-destaque">
                     </a>
                 </li>
             </ul>
         </aside>
         <hr class="linhas-div">
-        <!--notícia principal do dia. (Aparece logo abaixo do hero.)-->
+        <!-- Notícia principal -->
         <div class="lista-noticias-principais">
             <div class="noticia-principal" id="noticia-principal">
-                <a href="noticias/rec.html" class="link-noticia">
-                    <img src="imagens/noticias/PrincipaldodiaRecife.jpg" alt="Rebanho de bois em uma fazenda de Pernambuco" class="img-noticia-principal">
+                <a href="notícias/sp.html" class="link-noticia">
+                    <img src="imagens/noticias/pecuaria-pernambuco.jpg" alt="Rebanho de bois em uma fazenda de Pernambuco" class="img-noticia-principal">
                     <div class="texto-noticia-principal">
                         <h3 class="NotíciasPrincipais">Pesquisa de Pernambuco revela impacto</h3>
                         <p class="subtitulo-noticia">• Estudo aponta ligação entre pecuária e emissões de gases de efeito estufa</p>
@@ -130,19 +130,19 @@
             </div>
             <hr class="linha-pesquisas">
             <div class="noticia-principal" id="noticia-marinha">
-                <a href="noticias/pecuaria.html" class="link-noticia">
-                    <img src="imagens/noticias/vidamarinha.png" alt="vida marinha" class="img-noticia-principal">
+                <a href="notícias/oceanos.html" class="link-noticia">
+                    <img src="imagens/noticias/oceanos.png" alt="vida marinha" class="img-noticia-principal">
                     <div class="texto-noticia-principal">
-                        <h3 class="NotíciasPrincipais">Hoje : Pesquisa sobre atividades humanos nos oceanos</h3>
+                        <h3 class="NotíciasPrincipais">Pesquisa acompanha impactos humanos nos oceanos</h3>
                         <p class="subtitulo-noticia">• Pesquisadores e ambientalistas acompanham os impactos da poluição, das mudanças climáticas e da atividade humana sobre os oceanos</p>
-                        <p class="meta-noticia">Hoje — Em oceanos e rios pelo o Brasil</p>
+                        <p class="meta-noticia">Hoje — Em oceanos e rios pelo Brasil</p>
                     </div>
                 </a>
             </div>
             <hr class="linhas-div">
             <div class="noticia-principal" id="noticia-lixos">
-                <a href="noticias/pecuaria.html" class="link-noticia">
-                    <img src="imagens/noticias/reciferecicla.png" alt="Programa de reciclagem" class="img-noticia-principal">
+                <a href="notícias/oceanos.html" class="link-noticia">
+                    <img src="imagens/noticias/recife-reciclagem.png" alt="Programa de reciclagem" class="img-noticia-principal">
                     <div class="texto-noticia-principal">
                         <h3 class="NotíciasPrincipais">Lixos eletrônicos levam preocupação de pessoas com o futuro incerto</h3>
                         <p class="subtitulo-noticia">• Professores orientam jovens sobre o descarte correto de lixo eletrônico</p>
@@ -153,7 +153,7 @@
         </div>
     </div>
 
-    <!--notícias gerais.-->
+    <!-- Outras notícias -->
     <section class="notíciashoje" id="noticias">
         <div class="cards-container">
             <div class="noticia" id="noticia-sp">
@@ -166,53 +166,53 @@
                 <h3>Notícia de Recife</h3>
                 <p class="info">Um novo estudo mostra que o consumo de carne pode ser uma das principais causas das mudanças climáticas.</p>
                 <p class="Local">Recife, Brasil</p>
-                <button>Mais informações</button>
+                <a class="mais-informacoes" href="notícias/recife-consumo-carne.html">Mais informações</a>
             </div>
             <div class="noticia" id="noticia-bahia">
                 <h3>Notícia da Bahia</h3>
-                <p class="info">A cidade de São Paulo implementa programa de reciclagem que reduz o volume de lixo em 30%.</p>
+                <p class="info">Cidades da Bahia adotam programa de reciclagem que reduz o volume de lixo em 30%.</p>
                 <p class="Local">Bahia, Brasil</p>
-                <button>Mais informações</button>
+                <a class="mais-informacoes" href="notícias/bahia-reciclagem.html">Mais informações</a>
             </div>
         </div>
  <hr>
-        <!--Campanhas registradas durante o ano-->
-       <div class="campanhas-container" id="campanhas"> 
+        <!-- Campanhas -->
+       <div class="campanhas-container" id="campanhas">
         <div class="campanhas" id="campanhas2">
             <h4 class="campanhas-anuais">Campanhas realizadas durante o ano</h4>
             <p class="Fazendas">Campanha realizadas nas fazendas do interiores do Brasil em 2026</p>
-            <img scr="" alt="" class="">
+
             <button class="btn-fazenda" id="btn-campanhas">Mais informações </button>
         </div>
         <div class="campanhas" id="campanhas1">
             <h4 class="campanhas-anuais">Campanhas realizadas durante o ano 2025</h4>
             <p class="Lixos-nas-ruas">Campanha realizada em cidades grandes do Brasil</p>
-            <img scr="" alt="" class="">
+
             <button class="btn-lixos" id="btn-campanhas">Mais informações </button>
         </div>
-       
+
         <div class="camapanhas" id="capanhas3">
             <h4 class="campanhas-anuais" id="campanha3">Campanhas realizadas no ano de 2023</h4>
             <p class="Vida-marinha">Campanhas realizadas no ano de 2023, na atuação de vidas marinhas.</p>
-            <img scr="" alt="" class="">
+
             <button class="btn-vidamarinha" id="btn-campanhas">Mais informações</button>
-       </div> 
+       </div>
        </div>
 
-       
+
     </section>
-    
+
 </main>
 
 <footer id="como-ajudar">
-    <!--Rodapé do site-->
+    <!-- Rodapé -->
     <p>© 2026 Muda / Meio Ambiente Brasil. Todos os direitos reservados.</p>
     <p>Este site é fictício e criado apenas para fins educacionais, agradecemos a visita.</p>
     <a class="github-link" href="https://github.com/Mathhh1/Vida-Brasil-Meio-ambiente" target="_blank">GitHub</a>
-    
+
 </footer>
 
-<!--link para o arquivo JavaScript-->
+<!-- JavaScript -->
 <script src="script.js"></script>
 </body>
 </html>
