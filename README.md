@@ -1,56 +1,71 @@
-# Juntos por um planeta mais **LIMPO**
+# 🌱 Muda | Meio Ambiente Brasil
 
-Crie um site com os objetivos abaixo, utilizando HTML, CSS e JavaScript.
+### Juntos por um planeta mais limpo
 
-Quero um comentário detalhado do que cada parte do código está fazendo para que eu possa alterar o que achar melhor.
+O **Muda** é um site educativo sobre meio ambiente, sustentabilidade e iniciativas brasileiras. Com uma interface responsiva feita em HTML, CSS e JavaScript, o projeto reúne notícias demonstrativas e sugestões de ações para cuidar do planeta.
 
-## Objetivo do site
+> ⚠️ **Projeto educacional:** o site é fictício. As notícias são conteúdos de demonstração e o formulário de cadastro não envia nem armazena dados.
 
-O site deve ter o nome em destaque, centralizado na homepage: "Juntos por um planeta mais LIMPO", com a palavra "LIMPO" destacada em relação ao restante.
+---
 
-## Homepage
+## ✨ O que você encontra
 
-- A homepage deve ter um nome centralizado e visualmente forte.
-- Quando o usuário rolar a página para baixo, o fundo do nome deve receber uma imagem desfocada.
-- Ao continuar a rolagem, a imagem deve ficar mais clara e o nome deve desaparecer gradualmente.
-- A área da imagem deve manter bordas suaves com leve blur.
-- Deve existir uma seta para avançar para outras imagens em um carrossel.
+- 🏡 **Página inicial** com apresentação do projeto, destaques e notícias.
+- 📰 **Artigos individuais** sobre clima, reciclagem, energia solar, pecuária e oceanos.
+- 🔎 **Busca com sugestões** para facilitar a navegação pelos conteúdos.
+- 📱 **Menu responsivo** e interações adaptadas a diferentes tamanhos de tela.
+- 🌍 **Seção “Como ajudar”** com ideias de participação e hábitos sustentáveis.
+- 🎨 **Identidade visual temática**, com imagens, vídeo de fundo e fonte Poppins.
 
-## Cabeçalho (head)
+## 🧰 Tecnologias
 
-O site deve conter links ou seções para:
-- Notícias;
-- Como ajudar;
-- Sobre nós.
+- 🧱 HTML5
+- 🎨 CSS3
+- ⚡ JavaScript — sem dependências de pacotes
+- 🔤 Google Fonts — Poppins
 
-A seção "Sobre nós" deve ser direcionada para o footer.
+## 📁 Organização das pastas
 
-## Busca / lupa de pesquisa
+```text
+.
+├── index.html                 # Página inicial
+├── assets/
+│   ├── css/                   # Estilos do site e dos artigos
+│   ├── images/                # Logos, ícones, imagens e vídeo
+│   └── js/                    # Interações da página inicial e dos artigos
+├── pages/
+│   └── noticias/              # Páginas individuais das notícias
+├── RELATORIO.md               # Relatório de alterações
+└── README.md                  # Documentação do projeto
+```
 
-Deve haver uma lupa de pesquisa no topo da página. Ao clicar nela, deve haver uma animação que abre sugestões de busca.
+## 🚀 Como visualizar
 
-Essas sugestões devem levar o usuário para outras páginas do projeto. O componente deve ser fácil de alterar no código para adicionar mais itens.
+O projeto não precisa de instalação de dependências nem de etapa de compilação.
 
-Além disso, o mesmo elemento deve ter um comportamento de scroll animado para facilitar a navegação.
+1. 📥 Clone ou baixe este repositório.
+2. 🌐 Abra o arquivo `index.html` no navegador.
+3. 🧭 Use o menu e a seção de notícias para navegar pelo site.
 
-### Exemplo de sugestões
+> 💡 Se preferir, execute o projeto com um servidor local, como a extensão **Live Server** no Visual Studio Code.
 
-- "Nova tecnologia de drones planta 10 mil árvores por dia em áreas desmatadas." (Ideal para direcionar para a seção de notícias de tecnologia verde)
-- "Mutirão de jovens retira 5 toneladas de plástico do litoral brasileiro em um único fim de semana." (Ótimo para inspirar a seção de 'Como ajudar')
-- "Estudantes universitários criam filtro de baixo custo que limpa água de rios poluídos." (Excelente para um projeto de faculdade, gera identificação)
-- "Pesquisadores descobrem enzima capaz de decompor garrafas PET em poucas horas." (Notícia de impacto científico)
-- "Como transformar o lixo orgânico da sua casa em energia limpa." (Focado em dicas práticas)
+## 🛠️ Como personalizar
 
-## Estrutura sugerida
+- 🖌️ Altere os estilos em `assets/css/`.
+- ⚙️ Ajuste as interações em `assets/js/`.
+- 🖼️ Adicione ou substitua imagens em `assets/images/` e atualize os caminhos usados nos arquivos HTML.
+- 📝 Para publicar um novo artigo, crie um arquivo `.html` em `pages/noticias/` e use caminhos relativos a essa pasta.
 
-- Hero section com nome central e imagem de fundo desfocada;
-- Carrossel com imagens de meio ambiente, natureza e impacto social;
-- Seção de notícias com foco em tecnologias verdes e ações sustentáveis;
-- Seção de "Como ajudar" com passos práticos para participação social;
-- Footer com informação sobre a organização e o "Sobre nós".
+## 👥 Créditos
 
-## Observação final
+Projeto acadêmico de Desenvolvimento Web, orientado pelo professor **Robert Fernandes de Melo**.
 
-O site deve ser visualmente impactante, moderno e educativo, com uma estética limpa, inspirada em sustentabilidade, responsabilidade ambiental e ação coletiva.
+### 🧑‍💻 Participantes
 
-aaa
+- **Felipe Moura** — [GitHub](https://github.com/farrrpa)
+- **Cauã Pedro** — [GitHub](https://github.com/yuukine67)
+- **Matheus Souza** — [GitHub](https://github.com/Mathhh1)
+- **Alberison** — [GitHub](https://github.com/Alberison90)
+---
+
+🌿 **Muda — pequenas ações ajudam a construir um futuro mais sustentável.**
