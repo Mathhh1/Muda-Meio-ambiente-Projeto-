@@ -215,12 +215,102 @@ body.menu-noticia-aberto {
 
 @media (max-width: 600px) {
     .btn-hamburguer {
-        left: 20px;
+        left: max(12px, env(safe-area-inset-left, 0px));
+        top: calc(env(safe-area-inset-top, 0px) + 12px);
     }
 
     .busca-noticia-painel {
         top: 64px;
         right: 16px;
+    }
+}
+
+/* Mantém o cabeçalho dos artigos utilizável em celulares e tablets estreitos. */
+@media (max-width: 900px) {
+    header {
+        min-height: 64px;
+        height: auto;
+        padding: 8px 58px;
+    }
+
+    header nav {
+        position: absolute;
+        top: 50%;
+        right: max(8px, env(safe-area-inset-right, 0px));
+        gap: 0;
+        margin: 0;
+        transform: translateY(-50%);
+    }
+
+    header nav > a {
+        display: none;
+    }
+
+    .logo {
+        max-width: calc(100% - 116px);
+    }
+
+    .logo img {
+        width: auto;
+        height: 46px;
+        max-width: 100%;
+    }
+
+    .btn-hamburguer {
+        left: max(12px, env(safe-area-inset-left, 0px));
+        top: calc(env(safe-area-inset-top, 0px) + 10px);
+        width: 44px;
+        height: 44px;
+    }
+
+    .btn-lupa {
+        width: 44px;
+        height: 44px;
+        margin: 0;
+    }
+
+    .menu-noticia {
+        width: min(290px, 85vw);
+        height: 100vh;
+        height: 100dvh;
+        padding-top: calc(env(safe-area-inset-top, 0px) + 76px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    body.menu-noticia-aberto .btn-hamburguer {
+        left: min(calc(min(290px, 85vw) + 12px), calc(100vw - 56px));
+        top: calc(env(safe-area-inset-top, 0px) + 12px);
+        width: 44px;
+        height: 44px;
+    }
+
+    .busca-noticia-painel {
+        top: calc(env(safe-area-inset-top, 0px) + 64px);
+        right: max(10px, env(safe-area-inset-right, 0px));
+        width: min(360px, calc(100vw - 20px));
+    }
+
+    .pagina,
+    .artigo-pesquisa {
+        width: 100%;
+        max-width: 820px;
+        margin: 24px auto;
+        padding: 0 16px 40px;
+    }
+
+    .pagina img,
+    .artigo-pesquisa img,
+    main img {
+        max-width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn-hamburguer,
+    .menu-noticia,
+    .menu-noticia-overlay,
+    .busca-noticia-painel {
+        transition-duration: .01ms;
     }
 }
 

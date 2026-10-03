@@ -2,6 +2,8 @@
 
 ### Juntos por um planeta mais limpo
 
+**Versão:** v.1.0.1
+
 O **Muda** é um site educativo sobre meio ambiente, sustentabilidade e iniciativas brasileiras. Com uma interface responsiva feita em HTML, CSS e JavaScript, o projeto reúne notícias demonstrativas e sugestões de ações para cuidar do planeta.
 
 > ⚠️ **Projeto educacional:** o site é fictício. As notícias são conteúdos de demonstração e o formulário de cadastro não envia nem armazena dados.

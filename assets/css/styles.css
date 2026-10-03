@@ -732,7 +732,7 @@ footer {
    RESPONSIVIDADE
 ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
     header {
         padding: 20px;
@@ -754,6 +754,10 @@ footer {
     }
 
     #Nav1 nav {
+        display: flex;
+    }
+
+    #Nav1 nav > a {
         display: none;
     }
 
@@ -828,5 +832,138 @@ footer {
 
     footer {
         padding: 30px 20px;
+    }
+}
+
+/* Ajustes de tela pequena e das barras dinâmicas do Safari/iOS. */
+@media (max-width: 900px) {
+    :root {
+        --altura-header: 68px;
+        --largura-menu-mobile: min(290px, 85vw);
+    }
+
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: clip;
+    }
+
+    img,
+    video,
+    iframe {
+        max-width: 100%;
+    }
+
+    header {
+        min-height: var(--altura-header);
+        padding: 8px 58px;
+        border-radius: 20px;
+        margin: 8px 10px 12px;
+    }
+
+    .btn-hamburguer {
+        left: 8px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .logo-inicio {
+        max-width: calc(100% - 116px);
+    }
+
+    #vida {
+        width: auto;
+        height: 48px;
+        max-width: 100%;
+    }
+
+    #Nav1 {
+        position: static;
+    }
+
+    #Nav1 nav {
+        position: static;
+        gap: 0;
+    }
+
+    .busca-container {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .btn-buscar {
+        width: 44px;
+        height: 44px;
+    }
+
+    .busca-painel {
+        position: fixed;
+        top: calc(env(safe-area-inset-top, 0px) + 66px);
+        right: 10px;
+        width: min(340px, calc(100vw - 20px));
+    }
+
+    .menu-mobile {
+        width: var(--largura-menu-mobile);
+        height: 100vh;
+        height: 100dvh;
+        padding-top: calc(env(safe-area-inset-top, 0px) + 76px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    body.menu-mobile-aberto .btn-hamburguer {
+        left: min(calc(var(--largura-menu-mobile) + 12px), calc(100vw - 52px));
+        top: calc(env(safe-area-inset-top, 0px) + 12px);
+        width: 44px;
+        height: 44px;
+    }
+
+    .titulo-principal {
+        height: calc(100vh - var(--altura-header) - 32px);
+        height: calc(100svh - var(--altura-header) - 32px);
+        min-height: 420px;
+        margin-inline: 10px;
+        padding: 32px 16px;
+        border-radius: 20px;
+    }
+
+    .layout-noticias {
+        padding: 16px;
+    }
+
+    .Notícias-Em-Destaques {
+        max-width: none;
+    }
+
+    .noticia-principal {
+        max-width: 100%;
+        padding: 0;
+        margin: 8px auto;
+    }
+
+    .notíciashoje {
+        padding: 24px 16px;
+    }
+
+    .noticia button,
+    .noticia .mais-informacoes {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 380px) {
+    #vida {
+        height: 40px;
+    }
+
+    .titulo-principal h1 {
+        font-size: clamp(20px, 6vw, 22px);
+    }
+
+    .layout-noticias {
+        padding-inline: 12px;
     }
 }
