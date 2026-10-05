@@ -1,0 +1,62 @@
+.controle-acessibilidade {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.cabecalho-artigo {
+    justify-content: flex-start;
+}
+
+.cabecalho-artigo > a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.controle-acessibilidade button {
+    min-width: 42px;
+    min-height: 42px;
+    border: 1px solid rgba(255,255,255,.75);
+    border-radius: 12px;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.controle-acessibilidade .botao-acessibilidade {
+    display: grid;
+    place-items: center;
+}
+
+.controle-acessibilidade button:hover,
+.controle-acessibilidade button:focus-visible {
+    color: #19391b;
+    background: #d8edc2;
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+}
+
+.controle-acessibilidade [hidden] { display: none !important; }
+
+.acoes-acessibilidade {
+    display: flex;
+    gap: 6px;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    padding: 8px;
+    border-radius: 14px;
+    background: #4e694b;
+    box-shadow: 0 4px 16px #0003;
+}
+
+@media (max-width: 700px) {
+    .controle-acessibilidade { margin-left: 0; }
+    .controle-acessibilidade button { min-width: 40px; min-height: 40px; }
+}
